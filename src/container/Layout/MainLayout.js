@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
+import { Link } from 'react-router-dom';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -11,6 +12,11 @@ import {
 const { Header, Sider, Content } = Layout;
 
 class MainLayout extends Component {
+  constructor(props) {
+    super(props);
+    this.wrapper = React.createRef();
+  }
+
   state = {
     collapsed: false,
   };
@@ -32,8 +38,10 @@ class MainLayout extends Component {
               <span>nav 1</span>
             </Menu.Item>
             <Menu.Item key='2'>
-              <VideoCameraOutlined />
-              <span>nav 2</span>
+              <Link to='/workers'>
+                <VideoCameraOutlined />
+                <span>Workers</span>
+              </Link>
             </Menu.Item>
             <Menu.Item key='3'>
               <UploadOutlined />
@@ -59,7 +67,7 @@ class MainLayout extends Component {
               minHeight: 'calc(100vh - 112px)',
             }}
           >
-            Content
+            {this.props.children}
           </Content>
         </Layout>
       </Layout>

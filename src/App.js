@@ -1,15 +1,16 @@
 import React from 'react';
-import { AppRouter } from 'router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import AppRouter from 'router/AppRouter';
 import MainLayout from 'container/Layout/MainLayout';
 import './App.css';
 
 function App() {
   return (
-    <div className='App'>
+    <Router>
       <MainLayout>
         <AppRouter />
       </MainLayout>
-    </div>
+    </Router>
   );
 }
 
