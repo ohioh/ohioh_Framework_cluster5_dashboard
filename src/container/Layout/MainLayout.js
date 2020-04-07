@@ -5,18 +5,14 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  MobileOutlined,
 } from '@ant-design/icons';
+import { Logo } from 'ui';
+import logoImg from 'assets/images/logo.png';
 
 const { Header, Sider, Content } = Layout;
-
+const { SubMenu } = Menu;
 class MainLayout extends Component {
-  constructor(props) {
-    super(props);
-    this.wrapper = React.createRef();
-  }
-
   state = {
     collapsed: false,
   };
@@ -31,22 +27,48 @@ class MainLayout extends Component {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className='logo' />
+          <Link to='/'>
+            <Logo>{logoImg}</Logo>
+          </Link>
           <Menu theme='dark' mode='inline' defaultSelectedKeys={['1']}>
-            <Menu.Item key='1'>
-              <UserOutlined />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key='2'>
-              <Link to='/workers'>
-                <VideoCameraOutlined />
-                <span>Workers</span>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key='3'>
-              <UploadOutlined />
-              <span>nav 3</span>
-            </Menu.Item>
+            <SubMenu
+              key='sub1'
+              title={
+                <span>
+                  <UserOutlined />
+                  <span>User</span>
+                </span>
+              }
+            >
+              <Menu.Item key='3'>
+                <Link to='/customer'>Customer</Link>
+              </Menu.Item>
+              <Menu.Item key='4'>Workers</Menu.Item>
+              <Menu.Item key='5'>Brand</Menu.Item>
+              <Menu.Item key='6'>Partner</Menu.Item>
+            </SubMenu>
+            <SubMenu
+              key='sub2'
+              title={
+                <span>
+                  <MobileOutlined />
+                  <span>Platform (App/Bot)</span>
+                </span>
+              }
+            >
+              <Menu.Item key='7'>
+                <Link to='/customer'>Survey</Link>
+              </Menu.Item>
+              <Menu.Item key='8'>
+                <Link to='/customer'>Issue</Link>
+              </Menu.Item>
+              <Menu.Item key='9'>
+                <Link to='/customer'>Leave</Link>
+              </Menu.Item>
+              <Menu.Item key='10'>
+                <Link to='/customer'>Attendence</Link>
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout className='site-layout'>
