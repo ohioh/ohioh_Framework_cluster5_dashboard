@@ -14,8 +14,10 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.1",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "universal-cookie": "^4.0.3"
   },
   "scripts": {
     "start": "PORT=3003 react-scripts start",

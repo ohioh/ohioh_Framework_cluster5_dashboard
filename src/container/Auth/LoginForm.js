@@ -1,6 +1,8 @@
 import React from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
+import { useDispatch } from 'react-redux';
 import { Wrapper, Logo } from 'ui';
+import { Login } from 'store/auth';
 import logoImg from 'assets/images/logo.png';
 
 const layout = {
@@ -18,9 +20,12 @@ const tailLayout = {
   },
 };
 
-const Login = () => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const onFinish = (values) => {
     console.log('Success:', values);
+    dispatch(Login(values));
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -83,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
