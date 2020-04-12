@@ -1,2 +1,2 @@
-export { Login, CheckLogin } from './auth.actions';
+export { Login, CheckLogin, LoginLoad, Logout } from './auth.actions';
 export { auth } from './auth.reducer';

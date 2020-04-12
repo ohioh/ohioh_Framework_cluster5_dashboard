@@ -10,7 +10,6 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(CheckLogin());
   }, [dispatch]);
@@ -19,13 +18,15 @@ function App() {
 
   return (
     <Router>
-      {auth.isAuth ? (
-        <MainLayout>
-          <AppRouter />
-        </MainLayout>
-      ) : (
-        <LoginForm />
-      )}
+      <>
+        {auth.isAuth ? (
+          <MainLayout>
+            <AppRouter isAuth={auth.isAuth} />
+          </MainLayout>
+        ) : (
+          <Route path='/' component={LoginForm} />
+        )}
+      </>
     </Router>
   );
 }

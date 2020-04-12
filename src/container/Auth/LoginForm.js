@@ -1,6 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import { Wrapper, Logo } from 'ui';
 import { Login } from 'store/auth';
@@ -24,8 +23,8 @@ const tailLayout = {
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const onFinish = async (values) => {
-    await dispatch(Login(values));
+  const onFinish = (values) => {
+    dispatch(Login(values));
   };
 
   const onFinishFailed = (errorInfo) => {
