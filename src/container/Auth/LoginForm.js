@@ -1,6 +1,7 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Form, Input, Button } from 'antd';
 import { Wrapper, Logo } from 'ui';
 import { Login } from 'store/auth';
 import logoImg from 'assets/images/logo.png';
@@ -23,9 +24,8 @@ const tailLayout = {
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
-    dispatch(Login(values));
+  const onFinish = async (values) => {
+    await dispatch(Login(values));
   };
 
   const onFinishFailed = (errorInfo) => {

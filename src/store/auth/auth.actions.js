@@ -16,10 +16,10 @@ export const Login = (payload) => {
   return async (dispatch) => {
     try {
       const data = await login(payload);
-      const jwtToken = data.access;
+      const KsadJwtToken = data.access;
 
-      cookies.set('jwtToken', `${jwtToken}`, { path: '/' });
-      axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
+      cookies.set('KsadJwtToken', `${KsadJwtToken}`, { path: '/' });
+      axios.defaults.headers.common['Authorization'] = `Bearer ${KsadJwtToken}`;
 
       return dispatch({
         type: types.LOGIN,
@@ -35,3 +35,10 @@ export const Login = (payload) => {
     }
   };
 };
+
+export const CheckLogin = () => ({
+  type: types.CHECK_LOGIN,
+  meta: {
+    api: false,
+  },
+});

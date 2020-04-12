@@ -19,15 +19,12 @@ function App() {
 
   return (
     <Router>
-      {auth.loading ? (
-        <PreLoader />
+      {auth.isAuth ? (
+        <MainLayout>
+          <AppRouter />
+        </MainLayout>
       ) : (
-        <>
-          <MainLayout>
-            <AppRouter />
-          </MainLayout>
-          <Route path='/login' component={LoginForm} />
-        </>
+        <LoginForm />
       )}
     </Router>
   );
