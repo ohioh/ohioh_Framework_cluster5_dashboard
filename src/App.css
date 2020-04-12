@@ -19,3 +19,7 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.ant-menu-sub {
+  background: #001529 !important;
+}
