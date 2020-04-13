@@ -2,7 +2,7 @@ export default {
   space: [0, 8, 16, 24, 32, 64, 128, 256],
   fontSizes: [12, 14, 16, 20, 24, 32],
   colors: {
-    grayBg: '#fafafa',
+    grayBg: '#f0f2f5',
     borderColor: '#e8e8e8',
     primaryColor: '#f06563',
     secondaryColor: '#093c5b',

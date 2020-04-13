@@ -105,9 +105,8 @@ const MainLayout = ({ children }) => {
         <Content
           className='site-layout-background'
           style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 'calc(100vh - 112px)',
+            margin: '16px',
+            minHeight: 'calc(100vh - 96px)',
           }}
         >
           {children}

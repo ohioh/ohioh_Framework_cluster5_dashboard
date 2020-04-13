@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Table, Button } from 'antd';
-import { Wrapper, Title } from 'ui';
+import { Wrapper, Title, PageHeader, AvatarNameTitle } from 'ui';
 
 const columns = [
   {
@@ -15,6 +15,21 @@ const columns = [
     key: 'primaryAdmin',
   },
   {
+    title: 'SMS Gateway',
+    dataIndex: 'smsGateway',
+    key: 'smsGateway',
+  },
+  {
+    title: 'Chatbot Number',
+    dataIndex: 'chatbotNumber',
+    key: 'chatbotNumber',
+  },
+  {
+    title: 'Worker Platforms',
+    dataIndex: 'workerPlatforms',
+    key: 'workerPlatforms',
+  },
+  {
     title: 'Phone',
     dataIndex: 'phone',
     key: 'phone',
@@ -23,36 +38,67 @@ const columns = [
 const data = [
   {
     key: '1',
-    companyName: 'Kutumbita',
+    companyName: (
+      <AvatarNameTitle
+        name='Kutumbita'
+        subtitle='Bangladesh'
+        thumb='https://picsum.photos/200/300'
+      />
+    ),
+    smsGateway: '02546',
+    chatbotNumber: '458754',
+    workerPlatforms: 'App',
     primaryAdmin: 'Salman Rahman',
     phone: '01254865',
   },
   {
     key: '2',
-    companyName: 'Kinship',
+    companyName: (
+      <AvatarNameTitle
+        name='Kinship'
+        subtitle='Canada'
+        thumb='https://picsum.photos/200/300'
+      />
+    ),
+    smsGateway: '02546',
+    chatbotNumber: '458754',
+    workerPlatforms: 'App',
     primaryAdmin: 'Talha',
     phone: '012546',
   },
   {
     key: '3',
-    companyName: 'Hifi public',
+    companyName: (
+      <AvatarNameTitle
+        name='HiFi'
+        subtitle='India'
+        thumb='https://picsum.photos/200/300'
+      />
+    ),
+    smsGateway: '02546',
+    chatbotNumber: '458754',
+    workerPlatforms: 'App',
     primaryAdmin: 'Raisul',
     phone: '42546',
   },
 ];
 
 function Company() {
+  const headerData = {
+    title: 'Customers',
+    buttons: [
+      {
+        label: 'Onboard A Customer',
+        link: '/customer/create',
+      },
+    ],
+  };
   return (
     <>
-      <Wrapper flex justify='space-between' mb={3}>
-        <Title h4>Customers List</Title>{' '}
-        <Link to='/customer/create'>
-          <Button type='primary' ghost>
-            Onboard A Customer
-          </Button>
-        </Link>
+      <PageHeader headerData={headerData} />
+      <Wrapper p={3}>
+        <Table columns={columns} dataSource={data} />
       </Wrapper>
-      <Table columns={columns} dataSource={data} />
     </>
   );
 }
