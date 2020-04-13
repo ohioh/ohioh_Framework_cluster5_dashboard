@@ -45,9 +45,9 @@ const data = [
         thumb='https://picsum.photos/200/300'
       />
     ),
-    smsGateway: '02546',
-    chatbotNumber: '458754',
-    workerPlatforms: 'App',
+    smsGateway: 'infobip',
+    chatbotNumber: '888044578458',
+    workerPlatforms: 'Smart Phone, SMS, Kiosk',
     primaryAdmin: 'Salman Rahman',
     phone: '01254865',
   },
@@ -60,9 +60,9 @@ const data = [
         thumb='https://picsum.photos/200/300'
       />
     ),
-    smsGateway: '02546',
-    chatbotNumber: '458754',
-    workerPlatforms: 'App',
+    smsGateway: 'Twilo',
+    chatbotNumber: '12452454545',
+    workerPlatforms: 'Smart Phone, SMS',
     primaryAdmin: 'Talha',
     phone: '012546',
   },
@@ -75,9 +75,9 @@ const data = [
         thumb='https://picsum.photos/200/300'
       />
     ),
-    smsGateway: '02546',
-    chatbotNumber: '458754',
-    workerPlatforms: 'App',
+    smsGateway: 'infobip',
+    chatbotNumber: '88457966996',
+    workerPlatforms: 'Smart Phone, SMS, Kiosk',
     primaryAdmin: 'Raisul',
     phone: '42546',
   },
