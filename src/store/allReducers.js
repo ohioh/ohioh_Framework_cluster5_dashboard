@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { auth } from './auth';
 import { RESET_APP } from './auth/auth.types';
-// import { company } from '../company';
+import { company } from './company';
 
 const allReducers = combineReducers({
   auth,
+  company,
 });
 
 export default (state, action) => {

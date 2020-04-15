@@ -1,18 +1,16 @@
 import React from 'react';
 import { Avatar } from 'antd';
-import { Wrapper, Title, Text, Link } from 'ui';
+import { Wrapper, Title, Text } from 'ui';
 
-const AvatarNameTitle = ({ name, subtitle, thumb, link }) => {
+const AvatarNameTitle = ({ name, subtitle, thumb }) => {
   return (
-    <Link to={link}>
-      <Wrapper flex align='center'>
-        <Avatar size={50} shape='square' src={thumb} />
-        <Wrapper ml={1}>
-          <Title h6>{name}</Title>
-          <Text mbnone>{subtitle}</Text>
-        </Wrapper>
+    <Wrapper flex align='center'>
+      <Avatar size={50} shape='square' src={thumb} />
+      <Wrapper ml={1}>
+        <Title h6>{name}</Title>
+        <Text mbnone>{subtitle}</Text>
       </Wrapper>
-    </Link>
+    </Wrapper>
   );
 };
 

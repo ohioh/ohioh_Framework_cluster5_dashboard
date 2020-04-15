@@ -6,6 +6,12 @@ import {
   RedEnvelopeOutlined,
 } from '@ant-design/icons';
 import { Wrapper, Title, Text, Tag } from 'ui';
+import {
+  CompanyModules,
+  WorkerPlatforms,
+  CompanySetUp,
+  CompanyAdministrator,
+} from './component';
 
 const { TabPane } = Tabs;
 
@@ -60,31 +66,30 @@ const CompanyDetails = () => {
           <Wrapper backgroundColor='white' px={3}>
             <Tabs defaultActiveKey='1'>
               <TabPane tab='Modules' key='1'>
-                Modules
-                {/* <CompanyOverview uuid={uuid} /> */}
+                <CompanyModules />
               </TabPane>
-              <TabPane tab='Worker Platforms' key='2'>
-                {/* <WorkerPlatforms companyDetails={companyDetails} /> */}
+              {/* <TabPane tab='Worker Platforms' key='2'>
+                <WorkerPlatforms />
               </TabPane>
 
               <TabPane tab='Company Setup' key='3'>
-                {/* <CompanySetUp uuid={uuid} /> */}
+                <CompanySetUp />
               </TabPane>
 
               <TabPane tab='Administrator' key='4'>
-                {/* <CompanyAdministrator /> */}
+                <CompanyAdministrator />
               </TabPane>
 
-              {/* {permissions.engage && (
-            <TabPane tab="Surveys" key="5">
-              <CompanySurvey />
-            </TabPane>
-          )}
-          {permissions.engage && (
-            <TabPane tab="Issue" key="6">
-              <CompanyIssue />
-            </TabPane>
-          )} */}
+              {permissions.engage && (
+                <TabPane tab='Surveys' key='5'>
+                  <CompanySurvey />
+                </TabPane>
+              )}
+              {permissions.engage && (
+                <TabPane tab='Issue' key='6'>
+                  <CompanyIssue />
+                </TabPane>
+              )} */}
             </Tabs>
           </Wrapper>
         </Col>

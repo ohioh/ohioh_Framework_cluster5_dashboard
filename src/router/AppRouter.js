@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Company, CompanyDetails } from 'container/Company';
+import { Companies, CompanyDetails } from 'container/Company';
 
 const PrivateRoute = ({ component: Component, isAuth, authInfo, ...rest }) => {
   return (
@@ -21,11 +21,12 @@ export default function AppRouter(props) {
   return (
     <Switch>
       <PrivateRoute
-        path='/customer/detail'
+        path='/customers/:uuid'
         component={CompanyDetails}
         {...props}
+        exact
       />
-      <PrivateRoute path='/customer' component={Company} {...props} />
+      <PrivateRoute path='/customers' component={Companies} {...props} />
     </Switch>
   );
 }

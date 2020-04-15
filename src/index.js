@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
+// eslint-disable-next-line
+import * as config from 'utils/axios';
 import App from './App';
 import Root from './store';
 import { theme } from './styles';
