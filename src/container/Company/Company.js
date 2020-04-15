@@ -96,7 +96,7 @@ function Company() {
   return (
     <>
       <PageHeader headerData={headerData} />
-      <Wrapper p={3}>
+      <Wrapper p={3} bg='white'>
         <Table columns={columns} dataSource={data} />
       </Wrapper>
     </>

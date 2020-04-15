@@ -1,15 +1,10 @@
-import React from 'react';
 import { Tag } from 'antd';
+import { space, color } from 'styled-system';
 import styled from 'styled-components';
 
-const TagStyled = styled(Tag)`
-  font-size: 12px;
-  text-transform: uppercase;
+const TagExtended = styled(Tag)`
   pointer-events: none;
-  margin-bottom: 13px;
-  margin-right: 15px;
+  margin-bottom: ${(props) => (props.mbnone ? '0px' : '13px')} ${space} ${color};
 `;
-
-const TagExtended = ({ children }) => <TagStyled>{children}</TagStyled>;
 
 export default TagExtended;

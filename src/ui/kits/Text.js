@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { space, color, border, fontSize } from 'styled-system';
+import { space, color, border, fontSize, typography } from 'styled-system';
 
 const Text = styled.p`
   margin-bottom: ${(props) => (props.mbnone ? '0px' : '5px')};
@@ -28,7 +28,7 @@ const Text = styled.p`
         padding: 0 5px;
         margin-bottom: 0;
       `}
-    ${fontSize} ${space} ${color} ${border};
+    ${fontSize} ${space} ${color} ${border} ${typography};
 `;
 
 export default Text;

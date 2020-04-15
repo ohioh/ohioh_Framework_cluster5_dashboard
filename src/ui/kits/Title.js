@@ -29,19 +29,19 @@ const Title = styled.h1`
       h4 &&
       css`
         font-size: 1.5rem;
-        font-weight: 600;
+        font-weight: 500;
       `}
     ${({ h5 }) =>
       h5 &&
       css`
         font-size: 1.25rem;
-        font-weight: 600;
+        font-weight: 500;
       `}
     ${({ h6 }) =>
       h6 &&
       css`
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 500;
       `}
 
 

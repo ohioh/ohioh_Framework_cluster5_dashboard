@@ -6,8 +6,6 @@ import { Wrapper, Title, Link } from 'ui';
 
 const HeaderWrapper = styled.div`
   background-color: #fff;
-  border-bottom: 16px solid ${(props) => props.theme.colors.grayBg};
-  // box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
   padding: 0 24px;
   margin-bottom: 10px;
 `;
