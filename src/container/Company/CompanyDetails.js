@@ -1,11 +1,13 @@
 import React from 'react';
-import { Row, Col, Avatar } from 'antd';
+import { Row, Col, Avatar, Tabs } from 'antd';
 import {
   UserOutlined,
   MobileOutlined,
   RedEnvelopeOutlined,
 } from '@ant-design/icons';
 import { Wrapper, Title, Text, Tag } from 'ui';
+
+const { TabPane } = Tabs;
 
 const CompanyDetails = () => {
   return (
@@ -55,8 +57,35 @@ const CompanyDetails = () => {
           </Wrapper>
         </Col>
         <Col md={16}>
-          <Wrapper backgroundColor='white' p={3}>
-            fdf
+          <Wrapper backgroundColor='white' px={3}>
+            <Tabs defaultActiveKey='1'>
+              <TabPane tab='Modules' key='1'>
+                Modules
+                {/* <CompanyOverview uuid={uuid} /> */}
+              </TabPane>
+              <TabPane tab='Worker Platforms' key='2'>
+                {/* <WorkerPlatforms companyDetails={companyDetails} /> */}
+              </TabPane>
+
+              <TabPane tab='Company Setup' key='3'>
+                {/* <CompanySetUp uuid={uuid} /> */}
+              </TabPane>
+
+              <TabPane tab='Administrator' key='4'>
+                {/* <CompanyAdministrator /> */}
+              </TabPane>
+
+              {/* {permissions.engage && (
+            <TabPane tab="Surveys" key="5">
+              <CompanySurvey />
+            </TabPane>
+          )}
+          {permissions.engage && (
+            <TabPane tab="Issue" key="6">
+              <CompanyIssue />
+            </TabPane>
+          )} */}
+            </Tabs>
           </Wrapper>
         </Col>
       </Row>
