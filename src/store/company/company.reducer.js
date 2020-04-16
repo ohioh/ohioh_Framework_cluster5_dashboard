@@ -82,7 +82,7 @@ export const company = (state = initialState, action) => {
         draft.createCompany = false;
         break;
       case GET_COMPANY_SETUPINFO_SUCCESS:
-        draft.companySetupInfo = keysToCamel(payload);
+        draft.companySetupInfo = keysToCamel(payload.results);
         break;
       case GET_DEMO_COMPANIES_SUCCESS:
         draft.demoCompanies = keysToCamel(payload);

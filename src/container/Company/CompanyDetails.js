@@ -83,9 +83,6 @@ const CompanyDetails = () => {
                 Worker Limit:{' '}
                 {_.get(companyDetails, 'package.maxWorkers', '---')}
               </Text>
-              <Text>
-                SMS Purchased: {_.get(companyDetails, 'package.maxSms', '---')}
-              </Text>
             </Wrapper>
           </Wrapper>
         </Col>
@@ -99,7 +96,7 @@ const CompanyDetails = () => {
                 <WorkerPlatforms companyDetails={companyDetails} />
               </TabPane>
 
-              {/* <TabPane tab='Company Setup' key='3'>
+              <TabPane tab='Company Setup' key='3'>
                 <CompanySetUp />
               </TabPane>
 
@@ -107,7 +104,7 @@ const CompanyDetails = () => {
                 <CompanyAdministrator />
               </TabPane>
 
-              {permissions.engage && (
+              {/* {permissions.engage && (
                 <TabPane tab='Surveys' key='5'>
                   <CompanySurvey />
                 </TabPane>

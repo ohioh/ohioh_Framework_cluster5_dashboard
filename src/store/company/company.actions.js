@@ -36,7 +36,7 @@ export const getCompanyDetails = (companyUUID) => ({
 export const getCompanySetupInfo = (companyUUID) => ({
   type: types.GET_COMPANY_SETUPINFO,
   payload: {
-    path: `/companies/setup-info/${companyUUID}`,
+    path: `/org/companies/${companyUUID}/company-setup`,
     method: 'GET',
   },
   meta: {
