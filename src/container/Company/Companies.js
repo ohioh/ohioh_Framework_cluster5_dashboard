@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { useSelector, useDispatch } from 'react-redux';
-import { Table, Button } from 'antd';
+import { Table } from 'antd';
 import { getCompanies } from 'store/company';
-import { Wrapper, Title, PageHeader, AvatarNameTitle, Tag } from 'ui';
+import { Wrapper, PageHeader, AvatarNameTitle } from 'ui';
 
 const columns = [
   {
@@ -70,7 +70,7 @@ function Companies() {
         smsGateway: company.smsGateway,
         primaryAdmin: company.primaryName,
         chatbotNumber: company.chatbotNumber,
-        workerPlatforms: workerplatforms.toString(),
+        workerPlatforms: workerplatforms.toString().split(',').join(', '),
         phone: company.primaryPhone,
       };
     });

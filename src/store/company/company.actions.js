@@ -98,10 +98,10 @@ export const updateCompanyPermissions = (companyUUID, payload) => ({
   },
 });
 
-export const getCompanyPermissions = (companyUUID) => ({
+export const getCompanyModules = (companyUUID) => ({
   type: types.GET_MODULE_PERMISSION,
   payload: {
-    path: `/auth/permissions/company/${companyUUID}`,
+    path: `/org/companies/${companyUUID}/modules`,
     method: 'GET',
   },
   meta: {

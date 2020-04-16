@@ -23,7 +23,7 @@ const initialState = {
     results: [],
   },
   createCompany: null,
-  detail: {
+  companyDetails: {
     package: {
       max_sms: 0,
       max_workers: 0,
@@ -31,7 +31,7 @@ const initialState = {
   },
   admins: [],
   surveys: [],
-  permissions: {},
+  modules: {},
   companySetupInfo: {
     factories: [
       {
@@ -63,20 +63,20 @@ export const company = (state = initialState, action) => {
         draft.companies.results = keysToCamel(payload.results);
         break;
       case GET_COMPANY_DETAILS_SUCCESS:
-        draft.detail = keysToCamel(payload);
+        draft.companyDetails = keysToCamel(payload);
         break;
       case CREATE_COMPANY_SUCCESS:
         draft.createCompany = true;
-        draft.detail = keysToCamel(payload);
+        draft.companyDetails = keysToCamel(payload);
         break;
       case GET_MODULE_PERMISSION_SUCCESS:
-        draft.permissions = keysToCamel(payload);
+        draft.modules = keysToCamel(payload);
         break;
       case GET_COMPANY_ADMINS_SUCCESS:
         draft.admins = keysToCamel(payload);
         break;
       case UPDATE_MODULE_PERMISSIONS_SUCCESS:
-        draft.permissions = payload;
+        draft.modules = payload;
         break;
       case CREATE_MESSAGE_WORKER_PLATFORM_SUCCESS:
         draft.createCompany = false;

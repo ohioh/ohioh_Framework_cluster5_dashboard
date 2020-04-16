@@ -7,7 +7,7 @@ export {
   getCompanySurveys,
   createMessageWorkerPlatform,
   updateCompanyPermissions,
-  getCompanyPermissions,
+  getCompanyModules,
   getAdmins,
 } from './company.actions';
 
