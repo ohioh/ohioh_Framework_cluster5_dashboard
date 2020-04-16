@@ -47,7 +47,7 @@ const MainLayout = ({ children }) => {
             }
           >
             <Menu.Item key='3'>
-              <Link to='/customer'>Customer</Link>
+              <Link to='/customers'>Customers</Link>
             </Menu.Item>
             <Menu.Item key='4'>Workers</Menu.Item>
             <Menu.Item key='5'>Brand</Menu.Item>

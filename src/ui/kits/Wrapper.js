@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { space, layout, border, color } from 'styled-system';
+import { space, layout, border, color, shadow } from 'styled-system';
 
 const Wrapper = styled.div`
   ${(props) =>
@@ -9,6 +9,7 @@ const Wrapper = styled.div`
       flex-wrap: ${(props) => (props.noWrap ? 'nowrap' : 'wrap')};
       justify-content: ${(props) =>
         props.justify ? props.justify : 'flex-start'};
+      flex-direction: ${(props) => (props.direction ? props.direction : 'row')};
     `}
 
   ${(props) =>
@@ -65,7 +66,7 @@ const Wrapper = styled.div`
       css`
         cursor: pointer;
       `}
-
+  ${shadow}
   ${space};
   ${layout};
   ${border};
