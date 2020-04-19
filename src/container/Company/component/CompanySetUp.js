@@ -19,7 +19,7 @@ const CompanySetUp = () => {
   const { companySetupInfo } = useSelector((state) => state.company);
   return (
     <Wrapper pt={2} pb={4}>
-      <Collapse accordion>
+      <Collapse defaultActiveKey={['0']} accordion>
         {_.map(companySetupInfo, (factory, i) => {
           return (
             <Panel

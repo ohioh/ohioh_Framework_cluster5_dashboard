@@ -22,7 +22,7 @@ const initialState = {
   admins: [],
   managers: [],
   surveys: [],
-  modules: {},
+  subscriptions: null,
   companySetupInfo: {
     factories: [
       {
@@ -60,8 +60,8 @@ export const company = (state = initialState, action) => {
         draft.createCompany = true;
         draft.companyDetails = keysToCamel(payload);
         break;
-      case types.GET_MODULE_PERMISSION_SUCCESS:
-        draft.modules = keysToCamel(payload);
+      case types.GET_COMPANY_SUBSCRIPTIONS_SUCCESS:
+        draft.subscriptions = keysToCamel(payload);
         break;
       case types.GET_COMPANY_PRIMARY_ADMINS_SUCCESS:
         draft.primaryAdmins = keysToCamel(payload);

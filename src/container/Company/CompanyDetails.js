@@ -12,7 +12,7 @@ import { parseDate } from 'utils';
 import { Wrapper, Title, Text, Tag } from 'ui';
 import { getCompanyDetails } from 'store/company';
 import {
-  CompanyModules,
+  CompanySubscriptions,
   WorkerPlatforms,
   CompanySetUp,
   CompanyAdmins,
@@ -89,8 +89,8 @@ const CompanyDetails = () => {
         <Col md={16}>
           <Wrapper backgroundColor='white' px={3}>
             <Tabs defaultActiveKey='1' animated={false}>
-              <TabPane tab='Modules' key='1'>
-                <CompanyModules />
+              <TabPane tab='Subscriptions' key='1'>
+                <CompanySubscriptions />
               </TabPane>
               <TabPane tab='Worker Platforms' key='2'>
                 <WorkerPlatforms companyDetails={companyDetails} />
