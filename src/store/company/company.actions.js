@@ -109,10 +109,32 @@ export const getCompanyModules = (companyUUID) => ({
   },
 });
 
-export const getAdmins = (companyUUID) => ({
+export const getCompanyPrimaryAdmins = (companyUUID) => ({
+  type: types.GET_COMPANY_PRIMARY_ADMINS,
+  payload: {
+    path: `/org/companies/${companyUUID}/admins?is_primary_admin=true`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getCompanyAdmins = (companyUUID) => ({
   type: types.GET_COMPANY_ADMINS,
   payload: {
-    path: `/companies/admin-list/${companyUUID}`,
+    path: `/org/companies/${companyUUID}/admins?is_primary_admin=false&role=admin`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getCompanyManagers = (companyUUID) => ({
+  type: types.GET_COMPANY_MANAGERS,
+  payload: {
+    path: `/org/companies/${companyUUID}/admins?is_primary_admin=false&role=manager`,
     method: 'GET',
   },
   meta: {

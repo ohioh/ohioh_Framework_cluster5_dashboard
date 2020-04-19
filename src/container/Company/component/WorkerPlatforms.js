@@ -4,7 +4,6 @@ import { Row, Col } from 'antd';
 import { Wrapper, Title, Text } from 'ui';
 
 const WorkerPlatforms = ({ companyDetails }) => {
-  console.log(companyDetails);
   let workerplatforms = _.get(
     companyDetails,
     'onboardingDetails.workerPlatforms',

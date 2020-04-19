@@ -3,19 +3,19 @@ import { useParams } from 'react-router';
 import _ from 'lodash';
 import { Row, Col, Avatar, Tabs } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { parseDate } from 'utils';
 import {
   UserOutlined,
   MobileOutlined,
   RedEnvelopeOutlined,
 } from '@ant-design/icons';
+import { parseDate } from 'utils';
 import { Wrapper, Title, Text, Tag } from 'ui';
 import { getCompanyDetails } from 'store/company';
 import {
   CompanyModules,
   WorkerPlatforms,
   CompanySetUp,
-  CompanyAdministrator,
+  CompanyAdmins,
 } from './component';
 
 const { TabPane } = Tabs;
@@ -100,8 +100,8 @@ const CompanyDetails = () => {
                 <CompanySetUp />
               </TabPane>
 
-              <TabPane tab='Administrator' key='4'>
-                <CompanyAdministrator />
+              <TabPane tab='Admins' key='4'>
+                <CompanyAdmins />
               </TabPane>
 
               {/* {permissions.engage && (

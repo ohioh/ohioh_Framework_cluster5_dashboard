@@ -22,7 +22,11 @@ const CompanySetUp = () => {
       <Collapse accordion>
         {_.map(companySetupInfo, (factory, i) => {
           return (
-            <Panel header={factory.name} key={i}>
+            <Panel
+              header={factory.name}
+              key={i}
+              style={{ backgroundColor: 'white' }}
+            >
               <Text>Departments :</Text>
               {_.map(factory.departments, (department, i) => {
                 return <Tag key={i}>{department.name}</Tag>;
