@@ -11,17 +11,6 @@ export const getCompanies = () => ({
   },
 });
 
-export const getDemoCompanies = () => ({
-  type: types.GET_DEMO_COMPANIES,
-  payload: {
-    path: `/companies/demo-requests`,
-    method: 'GET',
-  },
-  meta: {
-    api: true,
-  },
-});
-
 export const getCompanyDetails = (companyUUID) => ({
   type: types.GET_COMPANY_DETAILS,
   payload: {
@@ -36,7 +25,7 @@ export const getCompanyDetails = (companyUUID) => ({
 export const getCompanySetupInfo = (companyUUID) => ({
   type: types.GET_COMPANY_SETUPINFO,
   payload: {
-    path: `/companies/setup-info/${companyUUID}`,
+    path: `/org/companies/${companyUUID}/company-setup`,
     method: 'GET',
   },
   meta: {
@@ -98,10 +87,10 @@ export const updateCompanyPermissions = (companyUUID, payload) => ({
   },
 });
 
-export const getCompanyPermissions = (companyUUID) => ({
-  type: types.GET_MODULE_PERMISSION,
+export const getCompanySubscriptions = (companyUUID) => ({
+  type: types.GET_COMPANY_SUBSCRIPTIONS,
   payload: {
-    path: `/auth/permissions/company/${companyUUID}`,
+    path: `/org/companies/${companyUUID}/subscription`,
     method: 'GET',
   },
   meta: {
@@ -109,10 +98,32 @@ export const getCompanyPermissions = (companyUUID) => ({
   },
 });
 
-export const getAdmins = (companyUUID) => ({
+export const getCompanyPrimaryAdmins = (companyUUID) => ({
+  type: types.GET_COMPANY_PRIMARY_ADMINS,
+  payload: {
+    path: `/org/companies/${companyUUID}/admins?is_primary_admin=true`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getCompanyAdmins = (companyUUID) => ({
   type: types.GET_COMPANY_ADMINS,
   payload: {
-    path: `/companies/admin-list/${companyUUID}`,
+    path: `/org/companies/${companyUUID}/admins?is_primary_admin=false&role=admin`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getCompanyManagers = (companyUUID) => ({
+  type: types.GET_COMPANY_MANAGERS,
+  payload: {
+    path: `/org/companies/${companyUUID}/admins?is_primary_admin=false&role=manager`,
     method: 'GET',
   },
   meta: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import { Wrapper, Logo } from 'ui';
 import { Login } from 'store/auth';

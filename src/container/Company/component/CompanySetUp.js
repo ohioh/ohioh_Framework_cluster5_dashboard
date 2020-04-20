@@ -1,7 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Collapse } from 'antd';
+import { useParams } from 'react-router';
+import _ from 'lodash';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCompanySetupInfo } from 'store/company';
+import { Wrapper, Text, Tag } from 'ui';
+
+const { Panel } = Collapse;
 
 const CompanySetUp = () => {
-  return <div>CompanySetUp</div>;
+  const param = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCompanySetupInfo(param.uuid));
+  }, [dispatch, param.uuid]);
+
+  const { companySetupInfo } = useSelector((state) => state.company);
+  return (
+    <Wrapper pt={2} pb={4}>
+      <Collapse defaultActiveKey={['0']} accordion>
+        {_.map(companySetupInfo, (factory, i) => {
+          return (
+            <Panel
+              header={factory.name}
+              key={i}
+              style={{ backgroundColor: 'white' }}
+            >
+              <Text>Departments :</Text>
+              {_.map(factory.departments, (department, i) => {
+                return <Tag key={i}>{department.name}</Tag>;
+              })}
+              <Text>Positions :</Text>
+              {_.map(factory.positions, (position, i) => {
+                return <Tag key={i}>{position.name}</Tag>;
+              })}
+            </Panel>
+          );
+        })}
+      </Collapse>
+    </Wrapper>
+  );
 };
 
 export default CompanySetUp;
