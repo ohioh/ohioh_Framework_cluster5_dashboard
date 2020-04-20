@@ -32,7 +32,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider trigger={null} width='250' collapsible collapsed={collapsed}>
         <Link to='/'>
           <Logo>{logoImg}</Logo>
         </Link>
@@ -62,9 +62,17 @@ const MainLayout = ({ children }) => {
               </span>
             }
           >
-            <Menu.Item key='7'>
+            {/* <Menu.Item key='7'>
               <Link to='/customer'>Survey</Link>
-            </Menu.Item>
+            </Menu.Item> */}
+            <SubMenu key='subsub1' title={<span>Survey</span>}>
+              <Menu.Item key='sub4'>
+                <Link to='/survey/templates'>Templates</Link>
+              </Menu.Item>
+              <Menu.Item key='sub5'>
+                <Link to='/survey/company'>Company Surveys</Link>
+              </Menu.Item>
+            </SubMenu>
             <Menu.Item key='8'>
               <Link to='/customer'>Issue</Link>
             </Menu.Item>
