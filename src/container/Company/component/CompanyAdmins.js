@@ -54,10 +54,15 @@ const CompanyAdmins = () => {
   const param = useParams();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getCompanyPrimaryAdmins(param.uuid));
+    dispatch(getCompanyAdmins(param.uuid));
+    dispatch(getCompanyManagers(param.uuid));
+  }, [dispatch, param.uuid]);
+
   const { primaryAdmins, admins, managers } = useSelector(
     (state) => state.company
   );
-  console.log(primaryAdmins);
 
   const renderPrimaryAdmins = () => {
     return _.map(primaryAdmins, (admin) => {
@@ -113,11 +118,6 @@ const CompanyAdmins = () => {
     });
   };
 
-  useEffect(() => {
-    dispatch(getCompanyPrimaryAdmins(param.uuid));
-    dispatch(getCompanyAdmins(param.uuid));
-    dispatch(getCompanyManagers(param.uuid));
-  }, [dispatch]);
   return (
     <Wrapper pb={2}>
       <Wrapper py={2}>

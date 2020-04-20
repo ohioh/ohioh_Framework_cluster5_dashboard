@@ -11,17 +11,6 @@ export const getCompanies = () => ({
   },
 });
 
-export const getDemoCompanies = () => ({
-  type: types.GET_DEMO_COMPANIES,
-  payload: {
-    path: `/companies/demo-requests`,
-    method: 'GET',
-  },
-  meta: {
-    api: true,
-  },
-});
-
 export const getCompanyDetails = (companyUUID) => ({
   type: types.GET_COMPANY_DETAILS,
   payload: {

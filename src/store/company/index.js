@@ -1,6 +1,5 @@
 export {
   getCompanies,
-  getDemoCompanies,
   getCompanyDetails,
   getCompanySetupInfo,
   createCompany,

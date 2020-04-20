@@ -26,7 +26,7 @@ const CompanyDetails = () => {
 
   useEffect(() => {
     dispatch(getCompanyDetails(param.uuid));
-  }, [dispatch]);
+  }, [dispatch, param.uuid]);
 
   const { companyDetails } = useSelector((state) => state.company);
 
@@ -103,17 +103,6 @@ const CompanyDetails = () => {
               <TabPane tab='Admins' key='4'>
                 <CompanyAdmins />
               </TabPane>
-
-              {/* {permissions.engage && (
-                <TabPane tab='Surveys' key='5'>
-                  <CompanySurvey />
-                </TabPane>
-              )}
-              {permissions.engage && (
-                <TabPane tab='Issue' key='6'>
-                  <CompanyIssue />
-                </TabPane>
-              )} */}
             </Tabs>
           </Wrapper>
         </Col>

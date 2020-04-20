@@ -12,10 +12,9 @@ const CompanySubscriptions = () => {
 
   useEffect(() => {
     dispatch(getCompanySubscriptions(param.uuid));
-  }, [dispatch]);
+  }, [dispatch, param.uuid]);
 
   const { subscriptions } = useSelector((state) => state.company);
-  console.log(subscriptions);
   return (
     <Wrapper>
       <Wrapper py={2}>
@@ -30,9 +29,9 @@ const CompanySubscriptions = () => {
         <Title h6 borderBottom='1px solid' borderColor='grayBg' pb={1} mb={1}>
           Modules
         </Title>
-        {_.map(_.get(subscriptions, 'modules'), (module) => {
+        {_.map(_.get(subscriptions, 'modules'), (module, i) => {
           return (
-            <Text>
+            <Text key={i}>
               {module.name} : Started On {parseDate(_.get(module, 'startDate'))}
             </Text>
           );

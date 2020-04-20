@@ -5,7 +5,6 @@ import AppRouter from 'router/AppRouter';
 import { LoginForm } from 'container/Auth';
 import { CheckLogin } from 'store/auth';
 import MainLayout from 'container/Layout/MainLayout';
-import { PreLoader } from 'ui';
 import './App.css';
 
 function App() {

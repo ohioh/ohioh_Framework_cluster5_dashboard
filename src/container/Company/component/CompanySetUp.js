@@ -14,7 +14,7 @@ const CompanySetUp = () => {
 
   useEffect(() => {
     dispatch(getCompanySetupInfo(param.uuid));
-  }, [dispatch]);
+  }, [dispatch, param.uuid]);
 
   const { companySetupInfo } = useSelector((state) => state.company);
   return (

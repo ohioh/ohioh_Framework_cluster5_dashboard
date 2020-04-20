@@ -81,9 +81,6 @@ export const company = (state = initialState, action) => {
       case types.GET_COMPANY_SETUPINFO_SUCCESS:
         draft.companySetupInfo = keysToCamel(payload.results);
         break;
-      case types.GET_DEMO_COMPANIES_SUCCESS:
-        draft.demoCompanies = keysToCamel(payload);
-        break;
       case types.GET_COMPANY_SURVEYS_SUCCESS:
         draft.surveys = keysToCamel(payload);
         break;
