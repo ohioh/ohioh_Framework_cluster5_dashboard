@@ -23,3 +23,15 @@ export const getSurveyTemplate = (templateUUID) => ({
     errorMessage: 'Survey Template not found',
   },
 });
+
+export const getCompanySurveys = (companyUUID, query = '') => ({
+  type: types.GET_COMPANY_SURVEYS,
+  payload: {
+    path: `/survey/company-schedules/${companyUUID}?${query}`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+    errorMessage: 'Surveys not found',
+  },
+});

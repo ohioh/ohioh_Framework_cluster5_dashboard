@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCompanies } from 'store/company';
 import { PageHeader, Customers } from 'ui';
 
-function CompanySurveys() {
+function CompaniesForSurvey() {
   const dispatch = useDispatch();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -25,4 +25,4 @@ function CompanySurveys() {
   );
 }
 
-export default CompanySurveys;
+export default CompaniesForSurvey;

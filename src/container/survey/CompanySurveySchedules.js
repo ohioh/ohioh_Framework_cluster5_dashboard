@@ -4,6 +4,7 @@ import { Row, Col, Tabs } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { Wrapper, CustomerOverview } from 'ui';
 import { getCompanyDetails } from 'store/company';
+import { CompanySurveys } from './components';
 
 const { TabPane } = Tabs;
 
@@ -27,7 +28,7 @@ const CompanySurveySchedules = () => {
           <Wrapper backgroundColor='white' px={3}>
             <Tabs defaultActiveKey='1' animated={false}>
               <TabPane tab='Surveys' key='1'>
-                Survey List
+                <CompanySurveys />
               </TabPane>
               <TabPane tab='Add Survey' key='2'>
                 Add Survey
