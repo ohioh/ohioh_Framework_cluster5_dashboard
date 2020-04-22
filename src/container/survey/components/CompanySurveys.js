@@ -62,7 +62,6 @@ const CompanySurveys = () => {
   const handlePagination = (paginator) => {
     handleQueryParams({ page: paginator.current });
   };
-  console.log(companySurveys);
   return (
     <Wrapper>
       <Table
