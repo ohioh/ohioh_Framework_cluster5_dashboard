@@ -3,7 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import {
   SurveyTemplates,
   SurveyTemplate,
-  CompanySurveys,
+  CompaniesForSurvey,
+  CompanySurveySchedules,
 } from 'container/survey';
 
 const SurveySubRouter = ({ match: { url } }) => {
@@ -11,7 +12,8 @@ const SurveySubRouter = ({ match: { url } }) => {
     <Switch>
       <Route path={`${url}/templates/:uuid`} component={SurveyTemplate} />
       <Route path={`${url}/templates`} component={SurveyTemplates} />
-      <Route path={`${url}/company`} component={CompanySurveys} />
+      <Route path={`${url}/company/:uuid`} component={CompanySurveySchedules} />
+      <Route path={`${url}/company`} component={CompaniesForSurvey} />
     </Switch>
   );
 };

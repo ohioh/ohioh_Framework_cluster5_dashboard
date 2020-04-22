@@ -6,6 +6,8 @@ const initialState = {
   templates: [],
   templatesPaginator: { total: null, current: null, pageSize: null },
   template: null,
+  companySurveys: [],
+  companySurveysPaginator: { total: null, current: null, pageSize: null },
 };
 
 export const survey = (state = initialState, action) => {
@@ -20,6 +22,12 @@ export const survey = (state = initialState, action) => {
         break;
       case types.GET_SURVEY_TEMPLATE_SUCCESS:
         draft.template = keysToCamel(payload);
+        break;
+      case types.GET_COMPANY_SURVEYS_SUCCESS:
+        draft.companySurveys = keysToCamel(payload.results);
+        draft.companySurveysPaginator.total = payload.paginator.total_count;
+        draft.companySurveysPaginator.current = payload.paginator.current_page;
+        draft.companySurveysPaginator.pageSize = payload.paginator.page_size;
         break;
       default:
         return state;

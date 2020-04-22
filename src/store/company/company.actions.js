@@ -1,9 +1,9 @@
 import * as types from './company.types';
 
-export const getCompanies = () => ({
+export const getCompanies = (query = '') => ({
   type: types.GET_COMPANIES,
   payload: {
-    path: `/org/companies`,
+    path: `/org/companies?${query}`,
     method: 'GET',
   },
   meta: {

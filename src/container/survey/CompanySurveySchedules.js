@@ -4,16 +4,11 @@ import { Row, Col, Tabs } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { Wrapper, CustomerOverview } from 'ui';
 import { getCompanyDetails } from 'store/company';
-import {
-  CompanySubscriptions,
-  WorkerPlatforms,
-  CompanySetUp,
-  CompanyAdmins,
-} from './component';
+import { CompanySurveys } from './components';
 
 const { TabPane } = Tabs;
 
-const CompanyDetails = () => {
+const CompanySurveySchedules = () => {
   const param = useParams();
   const dispatch = useDispatch();
 
@@ -32,19 +27,11 @@ const CompanyDetails = () => {
         <Col md={16}>
           <Wrapper backgroundColor='white' px={3}>
             <Tabs defaultActiveKey='1' animated={false}>
-              <TabPane tab='Subscriptions' key='1'>
-                <CompanySubscriptions />
+              <TabPane tab='Surveys' key='1'>
+                <CompanySurveys />
               </TabPane>
-              <TabPane tab='Worker Platforms' key='2'>
-                <WorkerPlatforms companyDetails={companyDetails} />
-              </TabPane>
-
-              <TabPane tab='Company Setup' key='3'>
-                <CompanySetUp />
-              </TabPane>
-
-              <TabPane tab='Admins' key='4'>
-                <CompanyAdmins />
+              <TabPane tab='Add Survey' key='2'>
+                Add Survey
               </TabPane>
             </Tabs>
           </Wrapper>
@@ -54,4 +41,4 @@ const CompanyDetails = () => {
   );
 };
 
-export default CompanyDetails;
+export default CompanySurveySchedules;
