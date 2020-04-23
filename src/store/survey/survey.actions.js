@@ -35,3 +35,16 @@ export const getCompanySurveys = (companyUUID, query = '') => ({
     errorMessage: 'Surveys not found',
   },
 });
+
+export const createCompanySurveySchedule = (payload, companyUUID) => ({
+  type: types.CREATE_COMPANY_SURVEY_SCHEDULE,
+  payload: {
+    path: `/survey/company-schedules/${companyUUID}`,
+    method: 'POST',
+    data: payload,
+  },
+  meta: {
+    api: true,
+    errorMessage: 'Survey schedule not created',
+  },
+});

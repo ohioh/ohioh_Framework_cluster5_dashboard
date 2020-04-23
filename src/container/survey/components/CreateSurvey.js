@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import _ from 'lodash';
+import { useParams } from 'react-router';
 import { Form, DatePicker, Button, Select } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSurveyTemplates } from 'store/survey';
-import { parseDate } from 'utils';
-import { Wrapper, CriteriaForm } from 'ui';
+import { getSurveyTemplates, createCompanySurveySchedule } from 'store/survey';
+import { Wrapper, CriteriaForm, Title } from 'ui';
 import { formLayout, formTailLayout } from 'utils';
 const { Option } = Select;
 
 const CreateSurvey = () => {
+  const param = useParams();
   const [form] = Form.useForm();
   const dispatch = useDispatch();
 
@@ -18,12 +19,13 @@ const CreateSurvey = () => {
 
   const { templates } = useSelector((state) => state.survey);
   const onFinish = (fieldsValue) => {
-    const value = {
+    const payload = {
       ...fieldsValue,
       start_date: fieldsValue['start_date'].format('YYYY-MM-DD'),
       end_date: fieldsValue['end_date'].format('YYYY-MM-DD'),
     };
-    console.log(value);
+    console.log(payload);
+    dispatch(createCompanySurveySchedule(payload, param.uuid));
   };
   return (
     <Wrapper>
@@ -32,8 +34,20 @@ const CreateSurvey = () => {
         name='create-survey'
         onFinish={onFinish}
         {...formLayout}
+        initialValues={{
+          connect_type: 'all',
+        }}
       >
-        <Form.Item label='Template' name='template'>
+        <Form.Item
+          label='Template'
+          name='template'
+          rules={[
+            {
+              required: true,
+              message: 'Please select a template!',
+            },
+          ]}
+        >
           <Select>
             {_.map(templates, (template) => {
               return (
@@ -44,18 +58,48 @@ const CreateSurvey = () => {
             })}
           </Select>
         </Form.Item>
-        <Form.Item label='Schedule Type' name='schedule_type'>
+        <Form.Item
+          label='Schedule Type'
+          name='schedule_type'
+          rules={[
+            {
+              required: true,
+              message: 'Please select a schedule type!',
+            },
+          ]}
+        >
           <Select>
             <Option value='adhoc'>Adhoc</Option>
             <Option value='default'>Default</Option>
           </Select>
         </Form.Item>
-        <Form.Item label='Start Date' name='start_date'>
+        <Form.Item
+          label='Start Date'
+          name='start_date'
+          rules={[
+            {
+              required: true,
+              message: 'Please select start date!',
+            },
+          ]}
+        >
           <DatePicker style={{ width: '100%' }} />
         </Form.Item>
-        <Form.Item label='End Date' name='end_date'>
+        <Form.Item
+          label='End Date'
+          name='end_date'
+          rules={[
+            {
+              required: true,
+              message: 'Please select end date!',
+            },
+          ]}
+        >
           <DatePicker style={{ width: '100%' }} />
         </Form.Item>
+        <Title h6 borderBottom='1px solid' borderColor='grayBg' pb={1} mb={2}>
+          Criteria
+        </Title>
         <CriteriaForm />
         <Form.Item {...formTailLayout}>
           <Button type='primary' htmlType='submit'>
