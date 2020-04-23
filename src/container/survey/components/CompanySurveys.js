@@ -21,6 +21,11 @@ const columns = [
     key: 'scheduleType',
   },
   {
+    title: 'Status',
+    dataIndex: 'status',
+    key: 'status',
+  },
+  {
     title: 'Start Date',
     dataIndex: 'startDate',
     key: 'startDate',
@@ -53,6 +58,7 @@ const CompanySurveys = () => {
         key: survey.uuid,
         template: _.get(survey, 'template.name'),
         scheduleType: _.get(survey, 'scheduleType'),
+        status: _.get(survey, 'status'),
         startDate: parseDate(_.get(survey, 'startDate')),
         endDate: parseDate(_.get(survey, 'endDate')),
       };

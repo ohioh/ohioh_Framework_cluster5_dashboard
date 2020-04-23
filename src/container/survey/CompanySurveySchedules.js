@@ -26,7 +26,7 @@ const CompanySurveySchedules = () => {
         </Col>
         <Col md={16}>
           <Wrapper backgroundColor='white' px={3}>
-            <Tabs defaultActiveKey='2' animated={false}>
+            <Tabs defaultActiveKey='1' animated={false}>
               <TabPane tab='Surveys' key='1'>
                 <CompanySurveys />
               </TabPane>

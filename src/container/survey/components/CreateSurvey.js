@@ -5,7 +5,7 @@ import { Form, DatePicker, Button, Select } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSurveyTemplates, createCompanySurveySchedule } from 'store/survey';
 import { Wrapper, CriteriaForm, Title } from 'ui';
-import { formLayout, formTailLayout } from 'utils';
+import { formLayout, formTailLayout, removeEmptyKey } from 'utils';
 const { Option } = Select;
 
 const CreateSurvey = () => {
@@ -19,12 +19,24 @@ const CreateSurvey = () => {
 
   const { templates } = useSelector((state) => state.survey);
   const onFinish = (fieldsValue) => {
+    const criteria = {
+      factory_uuid: fieldsValue['factory_uuid'],
+      department_uuid: fieldsValue['department_uuid'],
+      position_uuid: fieldsValue['position_uuid'],
+      joined_at: fieldsValue['joined_at'],
+      connect_type: fieldsValue['connect_type'],
+      subscribed_on: fieldsValue['subscribed_on'],
+    };
+    removeEmptyKey(criteria);
     const payload = {
-      ...fieldsValue,
+      template: fieldsValue['template'],
+      schedule_type: fieldsValue['schedule_type'],
       start_date: fieldsValue['start_date'].format('YYYY-MM-DD'),
       end_date: fieldsValue['end_date'].format('YYYY-MM-DD'),
+      criteria: {
+        ...criteria,
+      },
     };
-    console.log(payload);
     dispatch(createCompanySurveySchedule(payload, param.uuid));
   };
   return (
@@ -34,9 +46,6 @@ const CreateSurvey = () => {
         name='create-survey'
         onFinish={onFinish}
         {...formLayout}
-        initialValues={{
-          connect_type: 'all',
-        }}
       >
         <Form.Item
           label='Template'
