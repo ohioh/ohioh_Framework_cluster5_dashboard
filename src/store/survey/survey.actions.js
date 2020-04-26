@@ -1,5 +1,17 @@
 import * as types from './survey.types';
 
+export const getCompaniesForSurvey = (query = '') => ({
+  type: types.GET_COMPANIES_FOR_SURVEY,
+  payload: {
+    path: `/org/companies?modules=engage&${query}`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+    errorMessage: 'Company not found',
+  },
+});
+
 export const getSurveyTemplates = () => ({
   type: types.GET_SURVEY_TEMPLATES,
   payload: {

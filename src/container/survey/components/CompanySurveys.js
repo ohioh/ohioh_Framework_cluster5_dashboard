@@ -44,9 +44,9 @@ const CompanySurveys = () => {
   const dispatch = useDispatch();
   const { handleQueryParams } = useQueryParams();
 
-  useEffect(() => {
-    dispatch(getCompanySurveys(param.uuid, params.toString()));
-  }, [dispatch, param.uuid, params.toString()]);
+  // useEffect(() => {
+  //   dispatch(getCompanySurveys(param.uuid, params.toString()));
+  // }, [dispatch, param.uuid, params.toString()]);
 
   const { companySurveys, companySurveysPaginator } = useSelector(
     (state) => state.survey

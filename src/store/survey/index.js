@@ -1,4 +1,5 @@
 export {
+  getCompaniesForSurvey,
   getSurveyTemplates,
   getSurveyTemplate,
   getCompanySurveys,

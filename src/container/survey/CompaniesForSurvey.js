@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCompanies } from 'store/company';
+import { getCompaniesForSurvey } from 'store/survey';
 import { PageHeader, Customers } from 'ui';
 
 function CompaniesForSurvey() {
@@ -10,9 +10,9 @@ function CompaniesForSurvey() {
   const params = new URLSearchParams(location.search);
 
   useEffect(() => {
-    dispatch(getCompanies(params.toString()));
+    dispatch(getCompaniesForSurvey(params.toString()));
   }, [dispatch, params.toString()]);
-  const { companies } = useSelector((state) => state.company);
+  const { companyForSurveys } = useSelector((state) => state.survey);
 
   const headerData = {
     title: 'Company Surveys',
@@ -20,7 +20,7 @@ function CompaniesForSurvey() {
   return (
     <>
       <PageHeader headerData={headerData} />
-      <Customers companies={companies} />
+      <Customers companies={companyForSurveys} />
     </>
   );
 }
