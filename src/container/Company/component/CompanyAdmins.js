@@ -39,11 +39,6 @@ const columns = [
     key: 'updatedAt',
   },
   {
-    title: 'Phone',
-    dataIndex: 'phone',
-    key: 'phone',
-  },
-  {
     title: 'Permission',
     dataIndex: 'permission',
     key: 'permission',

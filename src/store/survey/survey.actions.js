@@ -1,5 +1,17 @@
 import * as types from './survey.types';
 
+export const getCompaniesForSurvey = (query = '') => ({
+  type: types.GET_COMPANIES_FOR_SURVEY,
+  payload: {
+    path: `/org/companies?modules=engage&${query}`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+    errorMessage: 'Company not found',
+  },
+});
+
 export const getSurveyTemplates = () => ({
   type: types.GET_SURVEY_TEMPLATES,
   payload: {
@@ -33,5 +45,19 @@ export const getCompanySurveys = (companyUUID, query = '') => ({
   meta: {
     api: true,
     errorMessage: 'Surveys not found',
+  },
+});
+
+export const createCompanySurveySchedule = (payload, companyUUID) => ({
+  type: types.CREATE_COMPANY_SURVEY_SCHEDULE,
+  payload: {
+    path: `/survey/company-schedules/${companyUUID}`,
+    method: 'POST',
+    data: payload,
+  },
+  meta: {
+    api: true,
+    successMessage: 'Survey schedule created successfully',
+    errorMessage: 'Survey schedule not created',
   },
 });
