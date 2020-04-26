@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Row, Col, Tabs } from 'antd';
 import { useLocation } from 'react-router-dom';
@@ -28,13 +28,6 @@ const CompanySurveySchedules = () => {
 
   const { defaultKey } = useSelector((state) => state.survey);
 
-  const [tabKey, setTabKey] = useState(defaultKey);
-
-  console.log(defaultKey);
-  useEffect(() => {
-    setTabKey(defaultKey);
-  }, [defaultKey]);
-
   return (
     <Wrapper>
       <Row gutter={16}>
@@ -43,8 +36,8 @@ const CompanySurveySchedules = () => {
         </Col>
         <Col md={16}>
           <Wrapper backgroundColor='white' px={3}>
-            {tabKey && (
-              <Tabs defaultActiveKey={tabKey} animated={false}>
+            {defaultKey && (
+              <Tabs defaultActiveKey={defaultKey} animated={false}>
                 <TabPane tab='Surveys' key='1'>
                   <CompanySurveys />
                 </TabPane>
