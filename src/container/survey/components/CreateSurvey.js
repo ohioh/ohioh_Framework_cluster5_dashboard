@@ -47,6 +47,10 @@ const CreateSurvey = () => {
         name='create-survey'
         onFinish={onFinish}
         {...formLayout}
+        initialValues={{
+          joined_at: true,
+          connect_type: 'APP',
+        }}
       >
         <Form.Item
           label='Template'

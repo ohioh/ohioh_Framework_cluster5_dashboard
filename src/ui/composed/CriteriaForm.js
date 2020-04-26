@@ -8,7 +8,7 @@ const { Option } = Select;
 
 const CriteriaForm = () => {
   const [factory, setFactory] = useState('');
-  const [joinedAt, setJoinedAt] = useState(null);
+  const [joinedAt, setJoinedAt] = useState(true);
   const [connectType, setConnectType] = useState('');
 
   const param = useParams();
@@ -88,7 +88,11 @@ const CriteriaForm = () => {
 
       {joinedAt && (
         <Form.Item label='Connect Type' name='connect_type'>
-          <Select onChange={(value) => setConnectType(value)} allowClear={true}>
+          <Select
+            placeholder='Select connect type'
+            onChange={(value) => setConnectType(value)}
+            allowClear={true}
+          >
             <Option value='APP'>App</Option>
             <Option value='SMS'>SMS</Option>
           </Select>
@@ -97,7 +101,7 @@ const CriteriaForm = () => {
 
       {connectType === 'APP' && (
         <Form.Item label='Subscribed On' name='subscribed_on'>
-          <Select allowClear={true}>
+          <Select placeholder='Select subscribe on' allowClear={true}>
             <Option value='mobile'>Smart Phone</Option>
             <Option value='kiosk'>Kiosk</Option>
           </Select>
