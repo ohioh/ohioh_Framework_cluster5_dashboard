@@ -28,6 +28,13 @@ const CompanySurveySchedules = () => {
 
   const { defaultKey } = useSelector((state) => state.survey);
 
+  const [tabKey, setTabKey] = useState(defaultKey);
+
+  console.log(defaultKey);
+  useEffect(() => {
+    setTabKey(defaultKey);
+  }, [defaultKey]);
+
   return (
     <Wrapper>
       <Row gutter={16}>
@@ -36,8 +43,8 @@ const CompanySurveySchedules = () => {
         </Col>
         <Col md={16}>
           <Wrapper backgroundColor='white' px={3}>
-            {defaultKey && (
-              <Tabs defaultActiveKey={defaultKey} animated={false}>
+            {tabKey && (
+              <Tabs defaultActiveKey={tabKey} animated={false}>
                 <TabPane tab='Surveys' key='1'>
                   <CompanySurveys />
                 </TabPane>

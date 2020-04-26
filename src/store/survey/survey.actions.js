@@ -57,6 +57,7 @@ export const createCompanySurveySchedule = (payload, companyUUID) => ({
   },
   meta: {
     api: true,
+    successMessage: 'Survey schedule created successfully',
     errorMessage: 'Survey schedule not created',
   },
 });

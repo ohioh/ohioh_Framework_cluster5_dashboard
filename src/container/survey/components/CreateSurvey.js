@@ -18,7 +18,7 @@ const CreateSurvey = () => {
   }, [dispatch]);
 
   const { templates } = useSelector((state) => state.survey);
-  const onFinish = (fieldsValue) => {
+  const onFinish = async (fieldsValue) => {
     const criteria = {
       factory_uuid: fieldsValue['factory_uuid'],
       department_uuid: fieldsValue['department_uuid'],
@@ -27,7 +27,7 @@ const CreateSurvey = () => {
       connect_type: fieldsValue['connect_type'],
       subscribed_on: fieldsValue['subscribed_on'],
     };
-    removeEmptyKey(criteria);
+    await removeEmptyKey(criteria);
     const payload = {
       template: fieldsValue['template'],
       schedule_type: fieldsValue['schedule_type'],
@@ -37,7 +37,8 @@ const CreateSurvey = () => {
         ...criteria,
       },
     };
-    dispatch(createCompanySurveySchedule(payload, param.uuid));
+    await dispatch(createCompanySurveySchedule(payload, param.uuid));
+    await form.resetFields();
   };
   return (
     <Wrapper>

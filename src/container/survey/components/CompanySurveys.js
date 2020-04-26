@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import _ from 'lodash';
-import { useParams } from 'react-router';
 import { Table } from 'antd';
-import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Wrapper } from 'ui';
 import { parseDate } from 'utils';
 import { useQueryParams } from 'hooks';
-import { getCompanySurveys } from 'store/survey';
 
 const columns = [
   {
@@ -38,15 +35,7 @@ const columns = [
 ];
 
 const CompanySurveys = () => {
-  const param = useParams();
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const dispatch = useDispatch();
   const { handleQueryParams } = useQueryParams();
-
-  // useEffect(() => {
-  //   dispatch(getCompanySurveys(param.uuid, params.toString()));
-  // }, [dispatch, param.uuid, params.toString()]);
 
   const { companySurveys, companySurveysPaginator } = useSelector(
     (state) => state.survey

@@ -42,7 +42,7 @@ const CriteriaForm = () => {
           <Option value='sms'>SMS</Option>
         </Select>
       </Form.Item>
-      {factory && (
+      {factory && departmenAndPositions && departmenAndPositions.departments && (
         <Form.Item
           label='Department'
           placeholder='Select a department'
@@ -61,7 +61,7 @@ const CriteriaForm = () => {
         </Form.Item>
       )}
 
-      {factory && (
+      {factory && departmenAndPositions && departmenAndPositions.positions && (
         <Form.Item
           label='Position'
           placeholder='Select a position'
@@ -79,14 +79,12 @@ const CriteriaForm = () => {
         </Form.Item>
       )}
 
-      {factory && (
-        <Form.Item label='Joined Kinship' name='joined_at'>
-          <Select onChange={(value) => setJoinedAt(value)} allowClear={true}>
-            <Option value={true}>Yes</Option>
-            <Option value={false}>No</Option>
-          </Select>
-        </Form.Item>
-      )}
+      <Form.Item label='Joined Kinship' name='joined_at'>
+        <Select onChange={(value) => setJoinedAt(value)} allowClear={true}>
+          <Option value={true}>Yes</Option>
+          <Option value={false}>No</Option>
+        </Select>
+      </Form.Item>
 
       {joinedAt && (
         <Form.Item label='Connect Type' name='connect_type'>

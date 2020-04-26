@@ -31,6 +31,9 @@ export const survey = (state = initialState, action) => {
       case types.GET_SURVEY_TEMPLATE_SUCCESS:
         draft.template = keysToCamel(payload);
         break;
+      case types.CREATE_COMPANY_SURVEY_SCHEDULE_SUCCESS:
+        draft.defaultKey = '1';
+        break;
       case types.GET_COMPANIES_FOR_SURVEY_SUCCESS:
         draft.companyForSurveys.results = keysToCamel(payload.results);
         draft.companyForSurveys.paginator.total = payload.paginator.total_count;
