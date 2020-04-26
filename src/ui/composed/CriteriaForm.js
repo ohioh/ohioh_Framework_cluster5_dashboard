@@ -38,7 +38,7 @@ const CriteriaForm = () => {
               </Option>
             );
           })}
-          <Option value='app'>App</Option>
+          <Option value='app'>APP</Option>
           <Option value='sms'>SMS</Option>
         </Select>
       </Form.Item>

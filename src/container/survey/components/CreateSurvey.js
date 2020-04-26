@@ -49,7 +49,6 @@ const CreateSurvey = () => {
         {...formLayout}
         initialValues={{
           joined_at: true,
-          connect_type: 'APP',
         }}
       >
         <Form.Item
