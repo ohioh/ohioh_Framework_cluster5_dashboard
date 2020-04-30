@@ -60,7 +60,7 @@ const SurveyTemplates = () => {
     buttons: [
       {
         label: 'Create Template',
-        link: '/survey/create',
+        link: '/survey/template/create',
       },
     ],
   };

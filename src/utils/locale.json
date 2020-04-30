@@ -1,0 +1,18 @@
+{
+  "question": {
+    "en": "Question",
+    "bn": "প্রশ্ন"
+  },
+  "question_placeholder": {
+    "en": "Write your question ...",
+    "bn": "আপনার প্রশ্ন লিখুন ..."
+  },
+  "answer": {
+    "en": "Answer",
+    "bn": "উত্তর"
+  },
+  "answer_placeholder": {
+    "en": "Write your answer option ...",
+    "bn": "আপনার উত্তরের নমুনা লিখুন ..."
+  }
+}
