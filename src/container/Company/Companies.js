@@ -20,7 +20,7 @@ function Companies() {
     buttons: [
       {
         label: 'Onboard A Customer',
-        link: '/customer/create',
+        link: '/customer/onboard',
       },
     ],
   };
