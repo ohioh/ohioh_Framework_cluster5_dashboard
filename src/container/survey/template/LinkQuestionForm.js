@@ -69,8 +69,9 @@ const LinkQuestionForm = () => {
       return { ...survey, questions };
     }
     const surveyPayload = await _transformSurvey(template);
+    console.log(surveyPayload);
     await dispatch(createSurveyTemplate(surveyPayload));
-    await history.push('/survey');
+    await history.push('/survey/templates');
   };
 
   const headerData = {

@@ -75,13 +75,7 @@ const QuestionsForm = () => {
       <Row gutter={16} type='flex' justify='center' align='middle'>
         <Col span={12}>
           <Wrapper p={3} bg='white'>
-            <Form
-              form={form}
-              {...formLayout}
-              initialValues={{
-                answer_type: 'free_text',
-              }}
-            >
+            <Form form={form} {...formLayout}>
               {template.questions.map((questionData, i) => {
                 return (
                   <QuestionPanel

@@ -136,7 +136,7 @@ export const deleteSurveyAnswer = (answerData) => ({
 export const createSurveyTemplate = (surveyData) => ({
   type: types.CREATE_SURVEY_TEMPLATE,
   payload: {
-    path: `/surveys/survey-templates`,
+    path: `/survey/templates`,
     method: 'POST',
     data: surveyData,
   },

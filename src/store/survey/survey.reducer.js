@@ -64,9 +64,7 @@ export const survey = (state = initialState, action) => {
         break;
       case types.STORE_SURVEY_BASIC_INFO:
         draft.template.name = payload.name;
-        draft.template.survey_type = payload.survey_type;
         draft.template.description = payload.description;
-        draft.template.event = payload.event;
         draft.template.languages = payload.languages;
         break;
       case types.STORE_SURVEY_QUESTIONS:

@@ -126,7 +126,7 @@ const QuestionPanel = ({ questionData, languages }) => {
         key='1'
       >
         {getMultiLangQuestion()}
-        <Form.Item label='Answer Type' name='answer_type'>
+        <Form.Item label='Answer Type'>
           <Select
             value={questionData.answer_type}
             onChange={onAnswerTypeChange}
