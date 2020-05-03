@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Row, Col } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCompanies } from 'store/company';
-import { PageHeader, Wrapper } from 'ui';
+import { PageHeader, Wrapper, ModuleUpdate } from 'ui';
 
 function ModulePermissions() {
   const dispatch = useDispatch();
@@ -26,7 +27,11 @@ function ModulePermissions() {
     <>
       <PageHeader headerData={headerData} />
       <Wrapper p={3} bg='white'>
-        fasfa
+        <Row gutter={16} type='flex' justify='center'>
+          <Col span={12}>
+            <ModuleUpdate />
+          </Col>
+        </Row>
       </Wrapper>
     </>
   );

@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getCompanies } from 'store/company';
-import { PageHeader, Wrapper } from 'ui';
-
+import { useDispatch } from 'react-redux';
+import { Form, Checkbox, Input, Row, Col } from 'antd';
+// import { getCompanies } from 'store/company';
+import { PageHeader, Wrapper, Button } from 'ui';
+const { TextArea } = Input;
 function WorkerPlatforms() {
+  const [form] = Form.useForm();
   const dispatch = useDispatch();
+
+  const onFinish = async (fieldsValue) => {
+    console.log(fieldsValue);
+  };
 
   // useEffect(() => {
   //   dispatch(getCompanies(params.toString()));
@@ -26,7 +31,29 @@ function WorkerPlatforms() {
     <>
       <PageHeader headerData={headerData} />
       <Wrapper p={3} bg='white'>
-        fasfa
+        <Row gutter={16} type='flex' justify='center'>
+          <Col span={12}>
+            <Form form={form} name='create-survey' onFinish={onFinish}>
+              <Form.Item name='onboarding_message'>
+                <TextArea placeholder='Write your message ...' rows={4} />
+              </Form.Item>
+              <Form.Item name='smart_phone' valuePropName='checked'>
+                <Checkbox>Smart Phone</Checkbox>
+              </Form.Item>
+              <Form.Item name='engage' valuePropName='checked'>
+                <Checkbox>SMS</Checkbox>
+              </Form.Item>
+              <Form.Item name='hr' valuePropName='checked'>
+                <Checkbox>Kiosk</Checkbox>
+              </Form.Item>
+              <Form.Item>
+                <Button type='primary' htmlType='submit'>
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </Col>
+        </Row>
       </Wrapper>
     </>
   );

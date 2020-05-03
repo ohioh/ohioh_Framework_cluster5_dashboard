@@ -3,6 +3,8 @@ import { keysToCamel } from 'utils';
 import * as types from './company.types';
 
 const initialState = {
+  packages: {},
+  countries: {},
   companies: {
     paginator: {
       total: null,
@@ -47,6 +49,14 @@ export const company = (state = initialState, action) => {
   const { type, payload } = action;
   return produce(state, (draft) => {
     switch (type) {
+      case types.GET_PACKAGES_SUCCESS:
+        console.log(payload);
+        draft.packages = keysToCamel(payload);
+        break;
+      case types.GET_COUNTRIES:
+        console.log(payload);
+        draft.countries = keysToCamel(payload);
+        break;
       case types.GET_COMPANIES_SUCCESS:
         draft.companies.paginator.total = payload.paginator.total_count;
         draft.companies.paginator.current = payload.paginator.current_page;

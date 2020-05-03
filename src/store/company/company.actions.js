@@ -1,5 +1,27 @@
 import * as types from './company.types';
 
+export const getCountries = () => ({
+  type: types.GET_COUNTRIES,
+  payload: {
+    path: `/common/countries`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getPackages = () => ({
+  type: types.GET_PACKAGES,
+  payload: {
+    path: `/common/packages`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
 export const getCompanies = (query = '') => ({
   type: types.GET_COMPANIES,
   payload: {
