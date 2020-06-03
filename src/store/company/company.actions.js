@@ -22,6 +22,28 @@ export const getPackages = () => ({
   },
 });
 
+export const getCouriers = () => ({
+  type: types.GET_COURIERS,
+  payload: {
+    path: `/common/couriers`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getLanguages = () => ({
+  type: types.GET_LANGUAGES,
+  payload: {
+    path: `/common/languages`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
 export const getCompanies = (query = '') => ({
   type: types.GET_COMPANIES,
   payload: {
@@ -58,7 +80,7 @@ export const getCompanySetupInfo = (companyUUID) => ({
 export const createCompany = (payload) => ({
   type: types.CREATE_COMPANY,
   payload: {
-    path: `/companies`,
+    path: `/org/companies`,
     method: 'POST',
     data: payload,
   },

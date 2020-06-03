@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
+import _ from 'lodash';
 import { Form, Select, Input, Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import { getPackages, getCountries } from 'store/company';
+import {
+  getPackages,
+  getCountries,
+  getCouriers,
+  getLanguages,
+  createCompany,
+} from 'store/company';
 import { formLayout, formTailLayout } from 'utils';
 import { PageHeader, Wrapper, Title, Button } from 'ui';
 const { Option } = Select;
@@ -21,13 +28,20 @@ function OnboardCustomer() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getCountries());
-  //   dispatch(getPackages());
-  // });
+  useEffect(() => {
+    dispatch(getCountries());
+    dispatch(getPackages());
+    dispatch(getCouriers());
+    dispatch(getLanguages());
+  }, [dispatch]);
+
+  const { countries, packages, couriers, languages } = useSelector(
+    (state) => state.company
+  );
 
   const onFinish = async (fieldsValue) => {
-    history.push('/customer/module-permission');
+    await dispatch(createCompany(fieldsValue));
+    await history.push('/customer/module-permission');
     await form.resetFields();
   };
   const headerData = {
@@ -44,7 +58,7 @@ function OnboardCustomer() {
       <PageHeader headerData={headerData} />
       <Wrapper p={3} bg='white'>
         <Row gutter={16} type='flex' justify='center'>
-          <Col span={12}>
+          <Col xl={12} lg={16} md={18} sm={24}>
             <Form
               form={form}
               name='create-survey'
@@ -63,15 +77,15 @@ function OnboardCustomer() {
                     },
                   ]}
                 >
-                  {/* <Select>
-              {_.map(templates, (template) => {
-                return (
-                  <Option key={template.uuid} value={template.uuid}>
-                    {template.name}
-                  </Option>
-                );
-              })}
-            </Select> */}
+                  <Select>
+                    {_.map(countries, (country) => {
+                      return (
+                        <Option key={country.code} value={country.code}>
+                          {country.name}
+                        </Option>
+                      );
+                    })}
+                  </Select>
                 </Form.Item>
                 <Form.Item
                   label='Company Name'
@@ -135,9 +149,13 @@ function OnboardCustomer() {
                   ]}
                 >
                   <Select>
-                    <Option key='1' value='p'>
-                      p
-                    </Option>
+                    {_.map(packages, (pack) => {
+                      return (
+                        <Option key={pack.uuid} value={pack.id}>
+                          {pack.name}
+                        </Option>
+                      );
+                    })}
                   </Select>
                 </Form.Item>
               </Wrapper>
@@ -149,14 +167,18 @@ function OnboardCustomer() {
                   rules={[
                     {
                       required: true,
-                      message: 'Select your package',
+                      message: 'Please write your bot no',
                     },
                   ]}
                 >
                   <Select>
-                    <Option key='1' value='p'>
-                      p
-                    </Option>
+                    {_.map(couriers, (courier) => {
+                      return (
+                        <Option key={courier.slug} value={courier.slug}>
+                          {courier.title}
+                        </Option>
+                      );
+                    })}
                   </Select>
                 </Form.Item>
                 <Form.Item
@@ -185,9 +207,13 @@ function OnboardCustomer() {
                   ]}
                 >
                   <Select>
-                    <Option key='1' value='p'>
-                      p
-                    </Option>
+                    {_.map(languages, (language) => {
+                      return (
+                        <Option key={language.slug} value={language.slug}>
+                          {language.title}
+                        </Option>
+                      );
+                    })}
                   </Select>
                 </Form.Item>
               </Wrapper>

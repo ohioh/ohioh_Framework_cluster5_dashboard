@@ -1,6 +1,8 @@
 export {
   getCountries,
   getPackages,
+  getCouriers,
+  getLanguages,
   getCompanies,
   getCompanyDetails,
   getCompanySetupInfo,
