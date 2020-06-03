@@ -9,7 +9,7 @@ export {
   createCompany,
   getCompanySurveys,
   createMessageWorkerPlatform,
-  updateCompanyPermissions,
+  updateCompanyModules,
   getCompanySubscriptions,
   getCompanyPrimaryAdmins,
   getCompanyAdmins,

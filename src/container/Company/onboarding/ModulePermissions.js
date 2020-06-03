@@ -1,19 +1,8 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { Row, Col } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
-import { getCompanies } from 'store/company';
 import { PageHeader, Wrapper, ModuleUpdate } from 'ui';
 
 function ModulePermissions() {
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getCompanies(params.toString()));
-  // }, [dispatch, params.toString()]);
-
-  // const { companies } = useSelector((state) => state.company);
-
   const headerData = {
     title: 'Customer On-boarding : Modules',
     buttons: [
