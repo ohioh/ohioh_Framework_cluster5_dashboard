@@ -15,7 +15,7 @@ function ModulePermissions() {
   // const { companies } = useSelector((state) => state.company);
 
   const headerData = {
-    title: 'Module Permissions',
+    title: 'Customer On-boarding : Modules',
     buttons: [
       {
         label: 'Back',

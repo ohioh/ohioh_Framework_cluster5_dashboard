@@ -31,7 +31,7 @@ function OnboardCustomer() {
     await form.resetFields();
   };
   const headerData = {
-    title: 'Onboard A Customer',
+    title: 'Customer On-boarding : Create Account',
     buttons: [
       {
         label: 'Back',

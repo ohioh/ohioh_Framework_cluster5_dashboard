@@ -19,7 +19,7 @@ function WorkerPlatforms() {
   // const { companies } = useSelector((state) => state.company);
 
   const headerData = {
-    title: 'Worker Platforms',
+    title: 'Customer On-boarding : Worker Platforms',
     buttons: [
       {
         label: 'Back',
