@@ -24,7 +24,7 @@ function ModuleUpdate() {
       }
     }
     await dispatch(updateCompanyModules(lastCompany.uuid, fieldsValue));
-    await history.push('/customer/companies');
+    await history.push('/customer/worker-platforms');
   };
   return (
     <>

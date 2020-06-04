@@ -1,22 +1,31 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Checkbox, Input, Row, Col } from 'antd';
-// import { getCompanies } from 'store/company';
+import { getCompanies, createMessageWorkerPlatform } from 'store/company';
 import { PageHeader, Wrapper, Button } from 'ui';
 const { TextArea } = Input;
 function WorkerPlatforms() {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    dispatch(getCompanies());
+  }, [dispatch]);
+
+  const { companies } = useSelector((state) => state.company);
+  const lastCompany = companies.results[0];
 
   const onFinish = async (fieldsValue) => {
-    console.log(fieldsValue);
+    for (let key in fieldsValue) {
+      if (fieldsValue[key] === undefined) {
+        fieldsValue[key] = false;
+      }
+    }
+    await dispatch(createMessageWorkerPlatform(lastCompany.uuid, fieldsValue));
+    await history.push('/customer/companies');
   };
-
-  // useEffect(() => {
-  //   dispatch(getCompanies(params.toString()));
-  // }, [dispatch, params.toString()]);
-
-  // const { companies } = useSelector((state) => state.company);
 
   const headerData = {
     title: 'Customer On-boarding : Worker Platforms',

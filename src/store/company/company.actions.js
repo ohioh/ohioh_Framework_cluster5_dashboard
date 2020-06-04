@@ -120,14 +120,14 @@ export const getCompanySurveys = (companyUUID) => ({
 export const createMessageWorkerPlatform = (companyUUID, payload) => ({
   type: types.CREATE_MESSAGE_WORKER_PLATFORM,
   payload: {
-    path: `/companies/${companyUUID}/worker-platforms`,
+    path: `/org/companies/${companyUUID}/worker-platforms`,
     method: 'POST',
     data: payload,
   },
   meta: {
     api: true,
-    successMessage: 'Message sent successfully',
-    errorMessage: 'Message not sent',
+    successMessage: 'Worker platform created',
+    errorMessage: 'Worker platform not created',
   },
 });
 
