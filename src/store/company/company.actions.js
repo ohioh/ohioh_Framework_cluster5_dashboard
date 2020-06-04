@@ -1,5 +1,49 @@
 import * as types from './company.types';
 
+export const getCountries = () => ({
+  type: types.GET_COUNTRIES,
+  payload: {
+    path: `/common/countries`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getPackages = () => ({
+  type: types.GET_PACKAGES,
+  payload: {
+    path: `/common/packages`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getCouriers = () => ({
+  type: types.GET_COURIERS,
+  payload: {
+    path: `/common/couriers`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
+export const getLanguages = () => ({
+  type: types.GET_LANGUAGES,
+  payload: {
+    path: `/common/languages`,
+    method: 'GET',
+  },
+  meta: {
+    api: true,
+  },
+});
+
 export const getCompanies = (query = '') => ({
   type: types.GET_COMPANIES,
   payload: {
@@ -36,7 +80,7 @@ export const getCompanySetupInfo = (companyUUID) => ({
 export const createCompany = (payload) => ({
   type: types.CREATE_COMPANY,
   payload: {
-    path: `/companies`,
+    path: `/org/companies`,
     method: 'POST',
     data: payload,
   },
@@ -44,6 +88,20 @@ export const createCompany = (payload) => ({
     api: true,
     successMessage: 'Company created successfully',
     errorMessage: 'Company not created',
+  },
+});
+
+export const updateCompanyModules = (companyUUID, payload) => ({
+  type: types.UPDATE_MODULE_PERMISSIONS,
+  payload: {
+    path: `/org/companies/${companyUUID}/modules`,
+    method: 'PUT',
+    data: payload,
+  },
+  meta: {
+    api: true,
+    successMessage: 'Permissions Updated successfuly !',
+    errorMessage: 'Permissions not updated !',
   },
 });
 
@@ -62,28 +120,14 @@ export const getCompanySurveys = (companyUUID) => ({
 export const createMessageWorkerPlatform = (companyUUID, payload) => ({
   type: types.CREATE_MESSAGE_WORKER_PLATFORM,
   payload: {
-    path: `/companies/${companyUUID}/worker-platforms`,
+    path: `/org/companies/${companyUUID}/worker-platforms`,
     method: 'POST',
     data: payload,
   },
   meta: {
     api: true,
-    successMessage: 'Message sent successfully',
-    errorMessage: 'Message not sent',
-  },
-});
-
-export const updateCompanyPermissions = (companyUUID, payload) => ({
-  type: types.UPDATE_MODULE_PERMISSIONS,
-  payload: {
-    path: `/companies/${companyUUID}/modules`,
-    method: 'PUT',
-    data: payload,
-  },
-  meta: {
-    api: true,
-    successMessage: 'Permissions Updated successfuly !',
-    errorMessage: 'Permissions not updated !',
+    successMessage: 'Worker platform created',
+    errorMessage: 'Worker platform not created',
   },
 });
 

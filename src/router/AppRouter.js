@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Companies, CompanyDetails } from 'container/Company';
-import { SurveySubRouter } from './';
+import { SurveySubRouter, CompanySubRouter } from './';
 
 const PrivateRoute = ({ component: Component, isAuth, authInfo, ...rest }) => {
   return (
@@ -21,13 +20,7 @@ const PrivateRoute = ({ component: Component, isAuth, authInfo, ...rest }) => {
 export default function AppRouter(props) {
   return (
     <Switch>
-      <PrivateRoute
-        path='/customers/:uuid'
-        component={CompanyDetails}
-        {...props}
-        exact
-      />
-      <PrivateRoute path='/customers' component={Companies} {...props} />
+      <PrivateRoute path='/customer' component={CompanySubRouter} {...props} />
       <PrivateRoute path='/survey' component={SurveySubRouter} {...props} />
     </Switch>
   );

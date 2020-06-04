@@ -4,3 +4,4 @@ export { default as AvatarNameTitle } from './AvatarNameTitle';
 export { default as Customers } from './Customers';
 export { default as CustomerOverview } from './CustomerOverview';
 export { default as CriteriaForm } from './CriteriaForm';
+export { default as ModuleUpdate } from './ModuleUpdate';
