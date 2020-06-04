@@ -89,6 +89,7 @@ export const company = (state = initialState, action) => {
         draft.managers = keysToCamel(payload);
         break;
       case types.UPDATE_MODULE_PERMISSIONS_SUCCESS:
+        console.log(payload);
         draft.modules = payload;
         break;
       case types.CREATE_MESSAGE_WORKER_PLATFORM_SUCCESS:

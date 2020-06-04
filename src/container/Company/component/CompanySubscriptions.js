@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Modal } from 'antd';
 import { useParams } from 'react-router';
+import { EditOutlined } from '@ant-design/icons';
 import _ from 'lodash';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCompanySubscriptions } from 'store/company';
-import { Wrapper, Title, Text } from 'ui';
+import { Wrapper, Title, Text, Button, ModuleUpdate } from 'ui';
 import { parseDate } from 'utils';
 
 const CompanySubscriptions = () => {
+  const [visible, setVisible] = useState(false);
   const param = useParams();
   const dispatch = useDispatch();
 
@@ -15,6 +18,11 @@ const CompanySubscriptions = () => {
   }, [dispatch, param.uuid]);
 
   const { subscriptions } = useSelector((state) => state.company);
+
+  const modulUpdate = {
+    redirectLink: undefined,
+  };
+
   return (
     <Wrapper>
       <Wrapper py={2}>
@@ -27,8 +35,26 @@ const CompanySubscriptions = () => {
       </Wrapper>
       <Wrapper py={2}>
         <Title h6 borderBottom='1px solid' borderColor='grayBg' pb={1} mb={1}>
-          Modules
+          <Wrapper flex justify='space-between'>
+            Modules
+            <Button
+              type='primary'
+              ghost
+              shape='circle'
+              size='small'
+              icon={<EditOutlined />}
+              onClick={() => setVisible(true)}
+            />
+          </Wrapper>
         </Title>
+        <Modal
+          title='Basic Modal'
+          footer={null}
+          onCancel={() => setVisible(false)}
+          visible={visible}
+        >
+          <ModuleUpdate modulUpdate={modulUpdate} />
+        </Modal>
         {_.map(_.get(subscriptions, 'modules'), (module, i) => {
           return (
             <Text key={i}>

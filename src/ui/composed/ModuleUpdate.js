@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateCompanyModules, getCompanies } from 'store/company';
 import { Button } from 'ui';
 
-function ModuleUpdate() {
+function ModuleUpdate({ modulUpdate }) {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -24,7 +24,7 @@ function ModuleUpdate() {
       }
     }
     await dispatch(updateCompanyModules(lastCompany.uuid, fieldsValue));
-    await history.push('/customer/worker-platforms');
+    modulUpdate.redirectLink && history.push(modulUpdate.redirectLink);
   };
   return (
     <>
