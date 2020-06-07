@@ -12,7 +12,7 @@ function ModulePermissions() {
       },
     ],
   };
-  const modulUpdate = {
+  const moduleUpdate = {
     redirectLink: '/customer/worker-platforms',
   };
   return (
@@ -21,7 +21,7 @@ function ModulePermissions() {
       <Wrapper p={3} bg='white'>
         <Row gutter={16} type='flex' justify='center'>
           <Col span={12}>
-            <ModuleUpdate modulUpdate={modulUpdate} />
+            <ModuleUpdate moduleUpdate={moduleUpdate} />
           </Col>
         </Row>
       </Wrapper>

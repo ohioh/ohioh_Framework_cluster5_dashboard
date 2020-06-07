@@ -18,9 +18,12 @@ const CompanySubscriptions = () => {
   }, [dispatch, param.uuid]);
 
   const { subscriptions } = useSelector((state) => state.company);
+  console.log(subscriptions);
 
-  const modulUpdate = {
+  const moduleUpdate = {
     redirectLink: undefined,
+    prevModules: _.get(subscriptions, 'modules'),
+    companyUUID: _.get(subscriptions, 'companyUuid'),
   };
 
   return (
@@ -48,12 +51,12 @@ const CompanySubscriptions = () => {
           </Wrapper>
         </Title>
         <Modal
-          title='Basic Modal'
+          title='Update Modules'
           footer={null}
           onCancel={() => setVisible(false)}
           visible={visible}
         >
-          <ModuleUpdate modulUpdate={modulUpdate} />
+          <ModuleUpdate moduleUpdate={moduleUpdate} />
         </Modal>
         {_.map(_.get(subscriptions, 'modules'), (module, i) => {
           return (
