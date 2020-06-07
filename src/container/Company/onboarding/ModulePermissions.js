@@ -12,13 +12,16 @@ function ModulePermissions() {
       },
     ],
   };
+  const moduleUpdate = {
+    redirectLink: '/customer/worker-platforms',
+  };
   return (
     <>
       <PageHeader headerData={headerData} />
       <Wrapper p={3} bg='white'>
         <Row gutter={16} type='flex' justify='center'>
           <Col span={12}>
-            <ModuleUpdate />
+            <ModuleUpdate moduleUpdate={moduleUpdate} />
           </Col>
         </Row>
       </Wrapper>
