@@ -18,7 +18,6 @@ const CompanySubscriptions = () => {
   }, [dispatch, param.uuid]);
 
   const { subscriptions } = useSelector((state) => state.company);
-  console.log(subscriptions);
 
   const moduleUpdate = {
     redirectLink: undefined,

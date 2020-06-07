@@ -31,7 +31,6 @@ function ModuleUpdate({ moduleUpdate }) {
   console.log(defaultModuleValues);
 
   const onFinish = async ({ updatedModules }) => {
-    // console.log(updatedModules);
     const modules = {
       connect: false,
       engage: false,
@@ -46,7 +45,6 @@ function ModuleUpdate({ moduleUpdate }) {
           }
         }
       }
-      console.log(modules);
       await dispatch(
         updateCompanyModules(
           moduleUpdate.companyUUID
@@ -60,39 +58,11 @@ function ModuleUpdate({ moduleUpdate }) {
   };
   return (
     <>
-      {/* <Form form={form} name='create-survey' onFinish={onFinish}>
-        <Form.Item name='connect' checked valuePropName='checked'>
-          <Checkbox>
-            <b>Connect :</b> Connect with workers
-          </Checkbox>
-        </Form.Item>
-        <Form.Item name='engage' valuePropName='checked'>
-          <Checkbox>
-            <b>Engage :</b> Get insight from worker engagement
-          </Checkbox>
-        </Form.Item>
-        <Form.Item name='hr' valuePropName='checked'>
-          <Checkbox>
-            <b>HR :</b> Manage HR modules online
-          </Checkbox>
-        </Form.Item>
-        <Form.Item name='training' valuePropName='checked'>
-          <Checkbox>
-            <b>Training :</b> Provide training to workers
-          </Checkbox>
-        </Form.Item>
-        <Form.Item>
-          <Button type='primary' htmlType='submit'>
-            Submit
-          </Button>
-        </Form.Item>
-      </Form> */}
       <Form form={form} onFinish={onFinish}>
         <Form.Item name='updatedModules' valuePropName='checked'>
           <Checkbox.Group
             options={options}
             defaultValue={defaultModuleValues ? defaultModuleValues : null}
-            // onChange={onChange}
           />
         </Form.Item>
         <Button type='primary' htmlType='submit'>
