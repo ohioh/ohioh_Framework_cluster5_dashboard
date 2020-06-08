@@ -50,10 +50,10 @@ const MainLayout = ({ children }) => {
               <Link to='/customer/companies'>Customers</Link>
             </Menu.Item>
             <Menu.Item key='4'>Workers</Menu.Item>
-            <Menu.Item key='5'>Brand</Menu.Item>
-            <Menu.Item key='6'>Partner</Menu.Item>
+            {/* <Menu.Item key='5'>Brand</Menu.Item>
+            <Menu.Item key='6'>Partner</Menu.Item> */}
           </SubMenu>
-          <SubMenu
+          {/* <SubMenu
             key='sub2'
             title={
               <span>
@@ -62,9 +62,6 @@ const MainLayout = ({ children }) => {
               </span>
             }
           >
-            {/* <Menu.Item key='7'>
-              <Link to='/customer'>Survey</Link>
-            </Menu.Item> */}
             <SubMenu key='subsub1' title={<span>Survey</span>}>
               <Menu.Item key='sub4'>
                 <Link to='/survey/templates'>Templates</Link>
@@ -82,7 +79,7 @@ const MainLayout = ({ children }) => {
             <Menu.Item key='10'>
               <Link to='/customer'>Attendence</Link>
             </Menu.Item>
-          </SubMenu>
+          </SubMenu> */}
         </Menu>
       </Sider>
       <Layout className='site-layout'>

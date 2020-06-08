@@ -6,7 +6,7 @@ import * as types from './auth.types';
 import { cookies } from 'utils';
 
 const login = async (payload) => {
-  let url = `${baseUrl.v1}/auth/login`;
+  let url = `${baseUrl.v1}/authentication/login`;
 
   const response = await axios.post(url, payload);
   return response.data;
