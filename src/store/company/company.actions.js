@@ -44,10 +44,10 @@ export const getLanguages = () => ({
   },
 });
 
-export const getCompanies = (query = '') => ({
+export const getUserKeys = (query = '') => ({
   type: types.GET_COMPANIES,
   payload: {
-    path: `/org/companies?${query}`,
+    path: `/key-generator/keys/get?${query}`,
     method: 'GET',
   },
   meta: {

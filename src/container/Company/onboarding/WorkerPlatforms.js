@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Checkbox, Input, Row, Col } from 'antd';
-import { getCompanies, createMessageWorkerPlatform } from 'store/company';
+import { getUserKeys, createMessageWorkerPlatform } from 'store/company';
 import { PageHeader, Wrapper, Button } from 'ui';
 const { TextArea } = Input;
 function WorkerPlatforms() {
@@ -11,7 +11,7 @@ function WorkerPlatforms() {
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getCompanies());
+    dispatch(getUserKeys());
   }, [dispatch]);
 
   const { companies } = useSelector((state) => state.company);

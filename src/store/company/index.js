@@ -3,7 +3,7 @@ export {
   getPackages,
   getCouriers,
   getLanguages,
-  getCompanies,
+  getUserKeys,
   getCompanyDetails,
   getCompanySetupInfo,
   createCompany,

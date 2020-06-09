@@ -42,14 +42,14 @@ const MainLayout = ({ children }) => {
             title={
               <span>
                 <UserOutlined />
-                <span>User</span>
+                <span>OIOH</span>
               </span>
             }
           >
             <Menu.Item key='3'>
-              <Link to='/customer/companies'>Customers</Link>
+              <Link to='/customer/companies'>Key Generation</Link>
             </Menu.Item>
-            <Menu.Item key='4'>Workers</Menu.Item>
+            <Menu.Item key='4'>Documentation</Menu.Item>
             {/* <Menu.Item key='5'>Brand</Menu.Item>
             <Menu.Item key='6'>Partner</Menu.Item> */}
           </SubMenu>

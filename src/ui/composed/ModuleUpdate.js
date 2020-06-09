@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { useHistory } from 'react-router-dom';
 import { Form, Checkbox } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateCompanyModules, getCompanies } from 'store/company';
+import { updateCompanyModules, getUserKeys } from 'store/company';
 import { Button } from 'ui';
 
 function ModuleUpdate({ moduleUpdate }) {
@@ -12,7 +12,7 @@ function ModuleUpdate({ moduleUpdate }) {
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getCompanies());
+    dispatch(getUserKeys());
   }, [dispatch]);
   console.log(moduleUpdate);
 

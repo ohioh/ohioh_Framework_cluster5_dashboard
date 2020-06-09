@@ -30,7 +30,7 @@ const apiMiddleware = () => (next) => (action) => {
     })
     .catch((error) => {
       antMessage.error(
-        error.response.data.message.error ||
+        error.response.data.message.msg ||
           errorMessage ||
           'Something went wrong'
       );

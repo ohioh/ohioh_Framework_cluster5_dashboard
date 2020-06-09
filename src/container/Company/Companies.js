@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCompanies } from 'store/company';
+import { getUserKeys } from 'store/company';
 import { PageHeader, Customers } from 'ui';
 
 function Companies() {
@@ -10,7 +10,7 @@ function Companies() {
   const params = new URLSearchParams(location.search);
 
   useEffect(() => {
-    dispatch(getCompanies(params.toString()));
+    dispatch(getUserKeys(params.toString()));
   }, [dispatch, params.toString()]);
 
   const { companies } = useSelector((state) => state.company);
@@ -19,7 +19,7 @@ function Companies() {
     title: 'Customers',
     buttons: [
       {
-        label: 'Onboard A Customer',
+        label: 'Generate Key',
         link: '/customer/onboard',
       },
     ],
