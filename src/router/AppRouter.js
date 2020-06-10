@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { SurveySubRouter, CompanySubRouter } from './';
+import { Documentation, KeyGeneration } from 'container/Layout';
 
 const PrivateRoute = ({ component: Component, isAuth, authInfo, ...rest }) => {
   return (
@@ -20,8 +20,8 @@ const PrivateRoute = ({ component: Component, isAuth, authInfo, ...rest }) => {
 export default function AppRouter(props) {
   return (
     <Switch>
-      <PrivateRoute path='/customer' component={CompanySubRouter} {...props} />
-      <PrivateRoute path='/survey' component={SurveySubRouter} {...props} />
+      <Route path='/key-generation' component={KeyGeneration} {...props} />
+      <Route path='/documentation' component={Documentation} {...props} />
     </Switch>
   );
 }

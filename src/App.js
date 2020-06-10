@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <>
-        {auth.isAuth ? (
+        {!auth.isAuth ? (
           <MainLayout>
             <AppRouter isAuth={auth.isAuth} />
           </MainLayout>
