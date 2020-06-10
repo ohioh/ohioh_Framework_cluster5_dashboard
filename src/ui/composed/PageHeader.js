@@ -1,8 +1,31 @@
 import React from 'react';
 import _ from 'lodash';
 import styled from 'styled-components';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import { Wrapper, Title, Link } from 'ui';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
+
+// class Key extends React.Component {
+//   state = {
+//     value: 'iuwyuiyqiuehfreq847832y5r2i3hfkj2nei2fudy23b8bryh23ithiu',
+//     copied: false,
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <Input value={this.state.value} onChange={({target: {value}}) => this.setState({value, copied: false})} />
+
+//         <CopyToClipboard text={this.state.value} onCopy={() => this.setState({copied: true})}>
+//           <Button style={{ position: 'center' }}>Copy</Button>
+//         </CopyToClipboard>
+
+//         {this.state.copied ? <span style={{color: 'green'}}>Copied.</span> : null}
+//       </div>
+//     );
+//   }
+// }
 
 const HeaderWrapper = styled.div`
   background-color: #fff;
@@ -41,6 +64,7 @@ function PageHeader({ headerData }) {
           })}
         </Wrapper>
       </Wrapper>
+      {/* <Key/> */}
     </HeaderWrapper>
   );
 }

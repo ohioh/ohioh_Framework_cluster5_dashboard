@@ -1,25 +1,36 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { getCompanies } from 'store/company';
-import { PageHeader } from 'ui';
+import { getKey } from 'store/auth';
+import { PageHeader, Wrapper, Button, Text } from 'ui';
+import { Input } from 'antd';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import _ from 'lodash';
 
 function KeyGeneration() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getCompanies());
-  // }, [dispatch]);
+  const [value, setValue] = useState('')
+  const [copied, setCopied] = useState(false)
 
+  useEffect(() => {
+    dispatch(getKey());
+  }, [dispatch]);
+
+  const { accessKey } = useSelector((state) => state.key);
+  useEffect(() => {
+    setValue(accessKey.access_key)
+  }, [accessKey]);
+
+  console.log(accessKey)
   const handleKeyGenerate = () => {
     console.log('key generate');
   };
 
   const headerData = {
-    title: 'Customers',
+    title: 'User Access Key',
     buttons: [
       {
-        label: 'Key Generate',
+        label: 'Generate New Key',
         method: handleKeyGenerate,
       },
     ],
@@ -27,6 +38,16 @@ function KeyGeneration() {
   return (
     <>
       <PageHeader headerData={headerData} />
+      <Wrapper>
+        <Input value={_.get(accessKey, 'access_key')} onChange={() => setCopied(true)}/>
+        <Wrapper flex justify='center' align='center' mt={2}>
+          <CopyToClipboard text={value} onCopy={() => setCopied(true)}>
+            <Button>Copy</Button>
+          </CopyToClipboard>
+
+          {copied ? <Text color='green' ml={1} mbnone={true}>Copied.</Text> : null}
+        </Wrapper>
+      </Wrapper>
     </>
   );
 }

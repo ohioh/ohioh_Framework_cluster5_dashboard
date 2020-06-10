@@ -73,7 +73,7 @@ const MainLayout = ({ children }) => {
                 style={{ cursor: 'pointer' }}
               >
                 <Title h6 ml={1}>
-                  Salman
+                  User
                 </Title>
               </Wrapper>
             </Dropdown>
