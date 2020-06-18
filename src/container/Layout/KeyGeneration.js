@@ -21,7 +21,6 @@ function KeyGeneration() {
     setValue(accessKey.access_key)
   }, [accessKey]);
 
-  console.log(accessKey)
   const handleKeyGenerate = () => {
     console.log('key generate');
   };
