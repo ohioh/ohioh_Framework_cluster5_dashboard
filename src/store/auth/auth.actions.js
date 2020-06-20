@@ -81,3 +81,15 @@ export const Logout = () => {
     }
   };
 };
+
+export const signUp = (payload) => ({
+  type: types.SIGN_UP,
+  payload: {
+    path: `/authentication/registration`,
+    method: 'POST',
+    data: payload,
+  },
+  meta: {
+    api: true,
+  },
+});

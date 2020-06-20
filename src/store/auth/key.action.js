@@ -10,6 +10,7 @@ export const getKey = () => ({
     api: true,
   },
 });
+
 export const createKey = () => ({
   type: types.CREATE_KEY,
   payload: {
