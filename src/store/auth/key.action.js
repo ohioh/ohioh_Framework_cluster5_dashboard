@@ -10,3 +10,13 @@ export const getKey = () => ({
     api: true,
   },
 });
+export const createKey = () => ({
+  type: types.CREATE_KEY,
+  payload: {
+    path: `/key-generator/keys/create`,
+    method: 'POST',
+  },
+  meta: {
+    api: true,
+  },
+});
